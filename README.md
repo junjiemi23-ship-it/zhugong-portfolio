@@ -41,9 +41,10 @@
 
 ## 使用说明
 
-- 克隆：`git clone https://github.com/junjiemi23-ship-it/主公的粮仓.git`
+- 克隆：`git clone https://github.com/junjiemi23-ship-it/zhugong-portfolio.git`
 - 本仓库同时作为个人作品集，欢迎就具体项目交流；如需复用，请留意各子目录内的单独说明。
 
 ## 更新日志
 
 - **2026-08-18** 仓库初始化，写入 README 与项目规划。
+- **2026-08-18** 修正克隆地址（仓库实际名为 `-`），建立五类项目目录骨架与隐私红线（.gitignore）。
