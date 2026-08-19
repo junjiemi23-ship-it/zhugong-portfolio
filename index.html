@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="主公的粮仓 / Zhugong's Granary — AI 智能体与 Web 实践者的个人项目作品集：Web 项目、AI 工具应用、调研与数据处理、网文与短视频创作。" />
+<title>主公的粮仓 / Zhugong's Granary</title>
+<style>
+  :root {
+    --bg: #f7f8fa;
+    --card: #ffffff;
+    --text: #1a1a1a;
+    --muted: #6b7280;
+    --border: #e5e7eb;
+    --accent: #2563eb;
+    --green: #16a34a;
+    --amber: #d97706;
+    --blue: #2563eb;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0f1115;
+      --card: #1a1d23;
+      --text: #e8eaed;
+      --muted: #9aa0a6;
+      --border: #2a2e36;
+      --accent: #60a5fa;
+    }
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: var(--bg); color: var(--text);
+    line-height: 1.6; padding: 0 20px; max-width: 960px; margin: 0 auto;
+  }
+  header {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 28px 0 12px;
+  }
+  h1 { font-size: 1.5rem; font-weight: 700; }
+  #langToggle {
+    border: 1px solid var(--border); background: var(--card); color: var(--text);
+    padding: 6px 14px; border-radius: 8px; cursor: pointer; font-size: 0.9rem;
+  }
+  #langToggle:hover { border-color: var(--accent); }
+  .hero { padding: 24px 0 8px; }
+  .tagline { font-size: 1.15rem; color: var(--muted); }
+  .about { padding: 16px 0; color: var(--muted); }
+  .about h2, .projects h2 { font-size: 1.1rem; margin-bottom: 12px; color: var(--text); }
+  .grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 14px; padding: 8px 0 24px;
+  }
+  .card {
+    background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+    padding: 16px; display: flex; flex-direction: column; gap: 8px;
+    text-decoration: none; color: inherit; transition: transform .12s, border-color .12s;
+  }
+  .card:hover { transform: translateY(-2px); border-color: var(--accent); }
+  .card .name { font-weight: 600; font-size: 1.05rem; }
+  .card .desc { font-size: 0.88rem; color: var(--muted); flex: 1; }
+  .badge {
+    align-self: flex-start; font-size: 0.75rem; padding: 2px 10px;
+    border-radius: 999px; border: 1px solid var(--border);
+  }
+  .badge.wip { color: var(--amber); border-color: var(--amber); }
+  .badge.plan { color: var(--blue); border-color: var(--blue); }
+  .badge.done { color: var(--green); border-color: var(--green); }
+  footer {
+    border-top: 1px solid var(--border); padding: 20px 0 40px;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 0.85rem; color: var(--muted);
+  }
+  footer a { color: var(--accent); text-decoration: none; }
+  /* bilingual toggle */
+  body.en .lang-zh { display: none; }
+  body:not(.en) .lang-en { display: none; }
+</style>
+</head>
+<body>
+  <header>
+    <h1><span class="lang-zh">主公的粮仓</span><span class="lang-en">Zhugong's Granary</span></h1>
+    <button id="langToggle">EN</button>
+  </header>
+
+  <section class="hero">
+    <p class="tagline">
+      <span class="lang-zh">AI 智能体与 Web 实践者 · 个人项目作品集</span>
+      <span class="lang-en">AI Agent &amp; Web Practitioner · Personal Project Portfolio</span>
+    </p>
+  </section>
+
+  <section class="about">
+    <h2><span class="lang-zh">关于</span><span class="lang-en">About</span></h2>
+    <p>
+      <span class="lang-zh">个人项目作品集：把技术落到实际场景。兴趣与实践方向：AI 智能体协作实践、Web 项目、网文写作、短视频创作、健身、英语学习。每个项目力求可运行、可说明、可复用。</span>
+      <span class="lang-en">A personal project portfolio: turning tech into real scenarios. Interests &amp; practice: AI-agent collaboration, web projects, web-novel writing, short-video creation, fitness, English learning. Every project aims to be runnable, explainable, and reusable.</span>
+    </p>
+  </section>
+
+  <section class="contact">
+    <h2><span class="lang-zh">联系方式</span><span class="lang-en">Contact</span></h2>
+    <p>
+      <span class="lang-zh">邮箱：<a href="mailto:junjiemi23@gmail.com">junjiemi23@gmail.com</a> · GitHub：<a href="https://github.com/junjiemi23-ship-it/zhugong-portfolio">junjiemi23-ship-it</a></span>
+      <span class="lang-en">Email: <a href="mailto:junjiemi23@gmail.com">junjiemi23@gmail.com</a> · GitHub: <a href="https://github.com/junjiemi23-ship-it/zhugong-portfolio">junjiemi23-ship-it</a></span>
+    </p>
+  </section>
+
+  <section class="projects">
+    <h2><span class="lang-zh">项目</span><span class="lang-en">Projects</span></h2>
+    <div class="grid">
+      <a class="card" href="https://github.com/junjiemi23-ship-it/zhugong-portfolio/tree/main/holiday-pages">
+        <span class="name">holiday-pages</span>
+        <span class="desc"><span class="lang-zh">节假日特定网页：节日/节点主题页、贺卡、倒计时、交互活动页。</span><span class="lang-en">Holiday web pages: themed pages, cards, countdowns, interactive event pages.</span></span>
+        <span class="badge plan"><span class="lang-zh">待定</span><span class="lang-en">TBD</span></span>
+      </a>
+      <a class="card" href="https://github.com/junjiemi23-ship-it/zhugong-portfolio/tree/main/surveys">
+        <span class="name">surveys</span>
+        <span class="desc"><span class="lang-zh">调研数据问卷：问卷构建、数据采集与清洗脚本。</span><span class="lang-en">Research surveys: questionnaire design, data collection &amp; cleaning scripts.</span></span>
+        <span class="badge plan"><span class="lang-zh">规划中</span><span class="lang-en">Planned</span></span>
+      </a>
+      <a class="card" href="https://github.com/junjiemi23-ship-it/zhugong-portfolio/tree/main/ai-chat">
+        <span class="name">ai-chat</span>
+        <span class="desc"><span class="lang-zh">AI 对话平台：对话/助手接入实验与对比。</span><span class="lang-en">AI chat platform: assistant integration experiments &amp; comparisons.</span></span>
+        <span class="badge plan"><span class="lang-zh">规划中</span><span class="lang-en">Planned</span></span>
+      </a>
+      <a class="card" href="https://github.com/junjiemi23-ship-it/zhugong-portfolio/tree/main/chat-companion">
+        <span class="name">chat-companion</span>
+        <span class="desc"><span class="lang-zh">AI 聊天搭子：基于对话数据的角色模拟（仅含脱敏示例）。</span><span class="lang-en">AI chat companion: role-play from dialogue data (sanitized samples only).</span></span>
+        <span class="badge plan"><span class="lang-zh">规划中</span><span class="lang-en">Planned</span></span>
+      </a>
+      <a class="card" href="https://github.com/junjiemi23-ship-it/zhugong-portfolio/tree/main/web-access">
+        <span class="name">web-access</span>
+        <span class="desc"><span class="lang-zh">AI 接入日常 Chrome 访问通道：实战记录 + Clash 分流指南。</span><span class="lang-en">AI via daily Chrome: field notes + Clash routing guide.</span></span>
+        <span class="badge done"><span class="lang-zh">已实践</span><span class="lang-en">Practiced</span></span>
+      </a>
+      <a class="card" href="https://github.com/junjiemi23-ship-it/zhugong-portfolio/tree/main/web-research">
+        <span class="name">web-research</span>
+        <span class="desc"><span class="lang-zh">网络真实资源大数据查找：公开资源的检索、聚合与归类。</span><span class="lang-en">Web research: retrieval, aggregation &amp; categorization of open resources.</span></span>
+        <span class="badge plan"><span class="lang-zh">规划中</span><span class="lang-en">Planned</span></span>
+      </a>
+      <a class="card" href="https://github.com/junjiemi23-ship-it/zhugong-portfolio/tree/main/docs">
+        <span class="name">docs</span>
+        <span class="desc"><span class="lang-zh">文档与协作约定：含《双 AI 共管协议》等。</span><span class="lang-en">Docs &amp; collaboration conventions, incl. the Dual-AI co-management agreement.</span></span>
+        <span class="badge done"><span class="lang-zh">已建</span><span class="lang-en">Built</span></span>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <a href="https://github.com/junjiemi23-ship-it/zhugong-portfolio">GitHub</a>
+    <a href="mailto:junjiemi23@gmail.com">junjiemi23@gmail.com</a>
+    <span>© 2026 主公的粮仓</span>
+  </footer>
+
+  <script>
+    var btn = document.getElementById('langToggle');
+    btn.addEventListener('click', function () {
+      var en = document.body.classList.toggle('en');
+      btn.textContent = en ? '中文' : 'EN';
+      document.documentElement.lang = en ? 'en' : 'zh-CN';
+    });
+  </script>
+</body>
+</html>
