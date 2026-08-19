@@ -3,163 +3,649 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="主公的粮仓 / Zhugong's Granary — AI 智能体与 Web 实践者的个人项目作品集：Web 项目、AI 工具应用、调研与数据处理、网文与短视频创作。" />
+<meta name="description" content="主公的粮仓 / Zhugong's Granary — 聚焦 AI 应用、智能体协作与轻量 Web 落地的个人项目作品集。" />
+<meta name="color-scheme" content="light dark" />
 <title>主公的粮仓 / Zhugong's Granary</title>
 <style>
   :root {
-    --bg: #f7f8fa;
-    --card: #ffffff;
-    --text: #1a1a1a;
-    --muted: #6b7280;
-    --border: #e5e7eb;
-    --accent: #2563eb;
-    --green: #16a34a;
-    --amber: #d97706;
-    --blue: #2563eb;
+    --paper: #f4f1e9;
+    --paper-deep: #e9e3d6;
+    --surface: #fbf9f4;
+    --ink: #172033;
+    --muted: #626b78;
+    --line: #cfc8b9;
+    --blue: #1649d8;
+    --blue-soft: #dce5ff;
+    --orange: #d85b23;
+    --green: #2f7355;
+    --shadow: 0 18px 48px rgba(27, 32, 44, 0.10);
+    --radius-sm: 10px;
+    --radius-md: 18px;
+    --space-xs: 0.5rem;
+    --space-sm: 0.8rem;
+    --space-md: 1.25rem;
+    --space-lg: clamp(2rem, 5vw, 4.5rem);
+    --space-xl: clamp(4.5rem, 10vw, 8rem);
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
   }
+
   @media (prefers-color-scheme: dark) {
     :root {
-      --bg: #0f1115;
-      --card: #1a1d23;
-      --text: #e8eaed;
-      --muted: #9aa0a6;
-      --border: #2a2e36;
-      --accent: #60a5fa;
+      --paper: #151922;
+      --paper-deep: #1d2330;
+      --surface: #202735;
+      --ink: #f2eee4;
+      --muted: #b1b7c2;
+      --line: #3f4858;
+      --blue: #88a6ff;
+      --blue-soft: #28365f;
+      --orange: #ff9462;
+      --green: #82c6a5;
+      --shadow: 0 20px 56px rgba(0, 0, 0, 0.28);
     }
   }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
   body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
-    background: var(--bg); color: var(--text);
-    line-height: 1.6; padding: 0 20px; max-width: 960px; margin: 0 auto;
+    margin: 0;
+    color: var(--ink);
+    background:
+      radial-gradient(circle at 10% 8%, color-mix(in srgb, var(--blue) 8%, transparent) 0 1px, transparent 1.5px) 0 0 / 20px 20px,
+      var(--paper);
+    font-family: "Segoe UI Variable Text", "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    text-rendering: optimizeLegibility;
   }
+
+  a { color: inherit; }
+  button, a { -webkit-tap-highlight-color: transparent; }
+  :focus-visible { outline: 3px solid var(--orange); outline-offset: 4px; }
+
+  .skip-link {
+    position: fixed;
+    top: 0.75rem;
+    left: 0.75rem;
+    z-index: 10;
+    padding: 0.7rem 1rem;
+    border-radius: var(--radius-sm);
+    background: var(--ink);
+    color: var(--paper);
+    transform: translateY(-160%);
+    transition: transform 180ms var(--ease);
+  }
+  .skip-link:focus { transform: translateY(0); }
+
+  .shell {
+    width: min(1120px, calc(100% - 2.5rem));
+    margin-inline: auto;
+  }
+
   header {
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 28px 0 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-md);
+    padding-block: 1.5rem;
+    border-bottom: 1px solid var(--line);
   }
-  h1 { font-size: 1.5rem; font-weight: 700; }
+
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    text-decoration: none;
+    font-weight: 760;
+    letter-spacing: -0.02em;
+  }
+  .brand-mark {
+    display: grid;
+    place-items: center;
+    width: 2.25rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 0.9rem;
+  }
+
+  .nav-wrap, nav {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  nav a {
+    color: var(--muted);
+    font-size: 0.9rem;
+    font-weight: 650;
+    text-decoration: none;
+  }
+  nav a:hover { color: var(--blue); }
+
   #langToggle {
-    border: 1px solid var(--border); background: var(--card); color: var(--text);
-    padding: 6px 14px; border-radius: 8px; cursor: pointer; font-size: 0.9rem;
+    min-width: 3rem;
+    min-height: 2.75rem;
+    padding: 0.55rem 0.8rem;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: var(--surface);
+    color: var(--ink);
+    font: inherit;
+    font-size: 0.82rem;
+    font-weight: 760;
+    cursor: pointer;
+    transition: border-color 180ms var(--ease), transform 180ms var(--ease);
   }
-  #langToggle:hover { border-color: var(--accent); }
-  .hero { padding: 24px 0 8px; }
-  .tagline { font-size: 1.15rem; color: var(--muted); }
-  .about { padding: 16px 0; color: var(--muted); }
-  .about h2, .projects h2 { font-size: 1.1rem; margin-bottom: 12px; color: var(--text); }
-  .grid {
-    display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 14px; padding: 8px 0 24px;
+  #langToggle:hover { border-color: var(--blue); transform: translateY(-1px); }
+
+  main { overflow: clip; }
+
+  .hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.45fr) minmax(270px, 0.55fr);
+    gap: clamp(2.5rem, 8vw, 7rem);
+    align-items: end;
+    min-height: min(760px, 82vh);
+    padding-block: var(--space-xl) var(--space-lg);
   }
-  .card {
-    background: var(--card); border: 1px solid var(--border); border-radius: 12px;
-    padding: 16px; display: flex; flex-direction: column; gap: 8px;
-    text-decoration: none; color: inherit; transition: transform .12s, border-color .12s;
+
+  .eyebrow, .section-kicker {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    margin: 0 0 1rem;
+    color: var(--orange);
+    font-size: 0.76rem;
+    font-weight: 820;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
   }
-  .card:hover { transform: translateY(-2px); border-color: var(--accent); }
-  .card .name { font-weight: 600; font-size: 1.05rem; }
-  .card .desc { font-size: 0.88rem; color: var(--muted); flex: 1; }
-  .badge {
-    align-self: flex-start; font-size: 0.75rem; padding: 2px 10px;
-    border-radius: 999px; border: 1px solid var(--border);
+  .eyebrow::before, .section-kicker::before {
+    content: "";
+    width: 2rem;
+    height: 2px;
+    background: currentColor;
   }
-  .badge.wip { color: var(--amber); border-color: var(--amber); }
-  .badge.plan { color: var(--blue); border-color: var(--blue); }
-  .badge.done { color: var(--green); border-color: var(--green); }
+
+  h1, h2, h3, p { margin-top: 0; }
+  h1, h2 {
+    font-family: "Iowan Old Style", "Palatino Linotype", "Noto Serif SC", "Songti SC", serif;
+    text-wrap: balance;
+  }
+  h1 {
+    max-width: 13ch;
+    margin-bottom: 1.5rem;
+    font-size: clamp(3rem, 8.2vw, 7.2rem);
+    font-weight: 640;
+    line-height: 0.97;
+    letter-spacing: -0.055em;
+  }
+  h1 em { color: var(--blue); font-style: normal; }
+
+  .hero-lead {
+    max-width: 44rem;
+    margin-bottom: 1.6rem;
+    color: var(--muted);
+    font-size: clamp(1.05rem, 2vw, 1.3rem);
+    line-height: 1.8;
+  }
+
+  .skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+    margin: 0 0 2rem;
+    padding: 0;
+    list-style: none;
+  }
+  .skill-list li {
+    padding: 0.45rem 0.8rem;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--surface) 72%, transparent);
+    color: var(--muted);
+    font-size: 0.82rem;
+    font-weight: 700;
+  }
+
+  .actions { display: flex; flex-wrap: wrap; gap: 0.8rem; }
+  .button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 3rem;
+    padding: 0.72rem 1.15rem;
+    border: 1px solid var(--ink);
+    border-radius: var(--radius-sm);
+    font-weight: 780;
+    text-decoration: none;
+    transition: transform 180ms var(--ease), box-shadow 180ms var(--ease), background 180ms var(--ease);
+  }
+  .button.primary { background: var(--ink); color: var(--paper); }
+  .button.secondary { background: transparent; }
+  .button:hover { transform: translateY(-2px); box-shadow: 4px 5px 0 var(--orange); }
+
+  .hero-note {
+    position: relative;
+    padding: 1.4rem 0 0 1.4rem;
+    border-left: 3px solid var(--blue);
+  }
+  .hero-note::before {
+    content: "01";
+    position: absolute;
+    top: -2.6rem;
+    left: 1.35rem;
+    color: var(--line);
+    font-family: Georgia, serif;
+    font-size: 2rem;
+  }
+  .hero-note dl { margin: 0; }
+  .hero-note div { padding: 0.9rem 0; border-bottom: 1px solid var(--line); }
+  .hero-note dt {
+    margin-bottom: 0.2rem;
+    color: var(--muted);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .hero-note dd { margin: 0; font-weight: 720; }
+
+  section { scroll-margin-top: 2rem; }
+  .section-grid {
+    display: grid;
+    grid-template-columns: minmax(160px, 0.35fr) minmax(0, 1fr);
+    gap: clamp(2rem, 8vw, 7rem);
+    padding-block: var(--space-xl);
+    border-top: 1px solid var(--line);
+  }
+  .section-heading { position: sticky; top: 2rem; align-self: start; }
+  .section-heading h2 {
+    margin-bottom: 0;
+    font-size: clamp(2rem, 4vw, 3.4rem);
+    line-height: 1.05;
+    letter-spacing: -0.035em;
+  }
+
+  .intro-copy > p:first-child {
+    max-width: 46rem;
+    margin-bottom: 2.5rem;
+    font-size: clamp(1.25rem, 3vw, 2rem);
+    line-height: 1.55;
+    letter-spacing: -0.02em;
+  }
+
+  .capabilities {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0;
+    border-top: 1px solid var(--line);
+  }
+  .capability { padding: 1.4rem 1.4rem 0 0; }
+  .capability + .capability { padding-left: 1.4rem; border-left: 1px solid var(--line); }
+  .capability-index { color: var(--orange); font-size: 0.78rem; font-weight: 820; }
+  .capability h3 { margin: 0.6rem 0; font-size: 1.02rem; }
+  .capability p { margin-bottom: 0; color: var(--muted); font-size: 0.9rem; }
+
+  .project-stack { display: grid; gap: 1rem; }
+  .project {
+    display: grid;
+    grid-template-columns: minmax(150px, 0.32fr) minmax(0, 1fr) auto;
+    gap: 1.5rem;
+    align-items: center;
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--line);
+    text-decoration: none;
+    transition: padding 220ms var(--ease), color 220ms var(--ease);
+  }
+  .project:first-child {
+    margin-bottom: 0.7rem;
+    padding: clamp(1.4rem, 4vw, 2.4rem);
+    border: 1px solid var(--ink);
+    border-radius: var(--radius-md);
+    background: var(--surface);
+    box-shadow: var(--shadow);
+  }
+  .project:hover { color: var(--blue); padding-left: 0.65rem; }
+  .project:first-child:hover { padding-left: clamp(1.8rem, 5vw, 3rem); }
+  .project-name { font-family: Georgia, serif; font-size: 1.1rem; font-weight: 760; }
+  .project-copy strong { display: block; margin-bottom: 0.25rem; color: var(--ink); font-size: 1rem; }
+  .project-copy span { color: var(--muted); font-size: 0.9rem; }
+  .status {
+    white-space: nowrap;
+    padding: 0.32rem 0.65rem;
+    border: 1px solid currentColor;
+    border-radius: 999px;
+    font-size: 0.72rem;
+    font-weight: 820;
+  }
+  .status.done { color: var(--green); }
+  .status.plan { color: var(--blue); }
+  .project-arrow { margin-left: 0.35rem; font-size: 1.1rem; }
+
+  .process {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    counter-reset: process;
+  }
+  .process article {
+    counter-increment: process;
+    min-height: 14rem;
+    padding: 1.3rem;
+    border-top: 4px solid var(--ink);
+    background: color-mix(in srgb, var(--surface) 75%, transparent);
+  }
+  .process article::before {
+    content: "0" counter(process);
+    color: var(--orange);
+    font-family: Georgia, serif;
+    font-size: 1.8rem;
+  }
+  .process h3 { margin: 2.6rem 0 0.55rem; font-size: 1.05rem; }
+  .process p { margin-bottom: 0; color: var(--muted); font-size: 0.9rem; }
+
+  .personal-note {
+    margin-top: 2.2rem;
+    padding-top: 1.4rem;
+    border-top: 1px dashed var(--line);
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+
+  .contact-block {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: var(--space-lg);
+    padding: clamp(2rem, 7vw, 5.2rem);
+    border-radius: var(--radius-md);
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .contact-block::after {
+    content: "↗";
+    position: absolute;
+    right: -0.5rem;
+    bottom: -4.8rem;
+    color: color-mix(in srgb, var(--paper) 10%, transparent);
+    font-family: Georgia, serif;
+    font-size: clamp(10rem, 26vw, 20rem);
+    line-height: 1;
+  }
+  .contact-block .section-kicker { color: var(--orange); }
+  .contact-block h2 {
+    position: relative;
+    z-index: 1;
+    max-width: 15ch;
+    margin-bottom: 1.3rem;
+    font-size: clamp(2.4rem, 6vw, 5.4rem);
+    line-height: 1.02;
+    letter-spacing: -0.045em;
+  }
+  .contact-block p { position: relative; z-index: 1; max-width: 42rem; color: color-mix(in srgb, var(--paper) 72%, transparent); }
+  .contact-links { position: relative; z-index: 1; display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 1.8rem; }
+  .contact-links a {
+    min-height: 3rem;
+    padding: 0.7rem 1rem;
+    border: 1px solid color-mix(in srgb, var(--paper) 45%, transparent);
+    border-radius: var(--radius-sm);
+    color: var(--paper);
+    font-weight: 760;
+    text-decoration: none;
+  }
+  .contact-links a:hover { background: var(--paper); color: var(--ink); }
+
   footer {
-    border-top: 1px solid var(--border); padding: 20px 0 40px;
-    display: flex; justify-content: space-between; align-items: center;
-    font-size: 0.85rem; color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-block: 1.2rem 2.2rem;
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 0.82rem;
   }
-  footer a { color: var(--accent); text-decoration: none; }
-  /* bilingual toggle */
-  body.en .lang-zh { display: none; }
-  body:not(.en) .lang-en { display: none; }
+  footer a { color: var(--blue); text-underline-offset: 0.2em; }
+
+  body.en .lang-zh { display: none !important; }
+  body:not(.en) .lang-en { display: none !important; }
+
+  @media (max-width: 820px) {
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-note { margin-top: 2rem; }
+    .section-grid { grid-template-columns: 1fr; }
+    .section-heading { position: static; }
+    .capabilities, .process { grid-template-columns: 1fr; }
+    .capability { padding: 1.2rem 0; }
+    .capability + .capability { padding-left: 0; border-left: 0; border-top: 1px solid var(--line); }
+    .process article { min-height: auto; }
+    .project { grid-template-columns: 1fr auto; gap: 0.65rem 1rem; }
+    .project-copy { grid-column: 1 / -1; }
+  }
+
+  @media (max-width: 560px) {
+    .shell { width: min(100% - 1.35rem, 1120px); }
+    header { align-items: flex-start; }
+    .nav-wrap { align-items: flex-end; flex-direction: column-reverse; gap: 0.55rem; }
+    nav { gap: 0.75rem; }
+    nav a { font-size: 0.78rem; }
+    h1 { font-size: clamp(2.75rem, 15vw, 4.5rem); }
+    .hero { padding-top: 4.5rem; }
+    .actions, .button { width: 100%; }
+    .project:first-child { padding: 1.15rem; }
+    .contact-links, .contact-links a { width: 100%; }
+    .contact-links a { display: flex; align-items: center; justify-content: center; }
+    footer { flex-direction: column; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { transition-duration: 0.01ms !important; }
+  }
 </style>
 </head>
 <body>
-  <header>
-    <h1><span class="lang-zh">主公的粮仓</span><span class="lang-en">Zhugong's Granary</span></h1>
-    <button id="langToggle">EN</button>
+  <a class="skip-link" href="#main"><span class="lang-zh">跳到主要内容</span><span class="lang-en">Skip to content</span></a>
+
+  <header class="shell">
+    <a class="brand" href="#top" aria-label="主公的粮仓首页">
+      <span class="brand-mark">ZG</span>
+      <span><span class="lang-zh">主公的粮仓</span><span class="lang-en">Zhugong's Granary</span></span>
+    </a>
+    <div class="nav-wrap">
+      <nav aria-label="Primary navigation">
+        <a href="#about"><span class="lang-zh">能力</span><span class="lang-en">Strengths</span></a>
+        <a href="#projects"><span class="lang-zh">项目</span><span class="lang-en">Projects</span></a>
+        <a href="#contact"><span class="lang-zh">联系</span><span class="lang-en">Contact</span></a>
+      </nav>
+      <button id="langToggle" type="button" aria-label="Switch to English">EN</button>
+    </div>
   </header>
 
-  <section class="hero">
-    <p class="tagline">
-      <span class="lang-zh">AI 智能体与 Web 实践者 · 个人项目作品集</span>
-      <span class="lang-en">AI Agent &amp; Web Practitioner · Personal Project Portfolio</span>
-    </p>
-  </section>
+  <main id="main">
+    <section class="hero shell" id="top">
+      <div>
+        <p class="eyebrow"><span class="lang-zh">AI 应用 · 智能体协作 · Web 落地</span><span class="lang-en">AI APPLICATIONS · AGENT WORKFLOWS · WEB DELIVERY</span></p>
+        <h1>
+          <span class="lang-zh">把 AI 工具，变成<em>能解决问题</em>的项目。</span>
+          <span class="lang-en">Turning AI tools into projects that <em>solve real problems.</em></span>
+        </h1>
+        <p class="hero-lead">
+          <span class="lang-zh">我专注于 AI 应用、智能体协作与轻量 Web 落地。从真实需求出发，梳理流程、验证方案，并把结果做成可运行、可说明、可复用的成果。</span>
+          <span class="lang-en">I focus on applied AI, multi-agent workflows, and lightweight web delivery—starting from real needs, testing practical approaches, and turning them into runnable, explainable, reusable outcomes.</span>
+        </p>
+        <ul class="skill-list" aria-label="Core skills">
+          <li>AI Agent Workflows</li>
+          <li>Web Delivery</li>
+          <li>Research &amp; Documentation</li>
+          <li>Rapid Learning</li>
+        </ul>
+        <div class="actions">
+          <a class="button primary" href="#projects"><span class="lang-zh">查看项目</span><span class="lang-en">View projects</span></a>
+          <a class="button secondary" href="#contact"><span class="lang-zh">联系合作</span><span class="lang-en">Get in touch</span></a>
+        </div>
+      </div>
 
-  <section class="about">
-    <h2><span class="lang-zh">关于</span><span class="lang-en">About</span></h2>
-    <p>
-      <span class="lang-zh">个人项目作品集：把技术落到实际场景。兴趣与实践方向：AI 智能体协作实践、Web 项目、网文写作、短视频创作、健身、英语学习。每个项目力求可运行、可说明、可复用。</span>
-      <span class="lang-en">A personal project portfolio: turning tech into real scenarios. Interests &amp; practice: AI-agent collaboration, web projects, web-novel writing, short-video creation, fitness, English learning. Every project aims to be runnable, explainable, and reusable.</span>
-    </p>
-  </section>
+      <aside class="hero-note" aria-label="Profile summary">
+        <dl>
+          <div>
+            <dt><span class="lang-zh">求职方向</span><span class="lang-en">FOCUS</span></dt>
+            <dd><span class="lang-zh">AI 应用与智能体实践</span><span class="lang-en">Applied AI &amp; Agent Workflows</span></dd>
+          </div>
+          <div>
+            <dt><span class="lang-zh">工作方式</span><span class="lang-en">METHOD</span></dt>
+            <dd><span class="lang-zh">问题 → 流程 → 可交付成果</span><span class="lang-en">Problem → Workflow → Deliverable</span></dd>
+          </div>
+          <div>
+            <dt><span class="lang-zh">当前状态</span><span class="lang-en">STATUS</span></dt>
+            <dd><span class="lang-zh">持续积累真实项目经验</span><span class="lang-en">Building real project experience</span></dd>
+          </div>
+        </dl>
+      </aside>
+    </section>
 
-  <section class="contact">
-    <h2><span class="lang-zh">联系方式</span><span class="lang-en">Contact</span></h2>
-    <p>
-      <span class="lang-zh">邮箱：<a href="mailto:junjiemi23@gmail.com">junjiemi23@gmail.com</a> · GitHub：<a href="https://github.com/junjiemi23-ship-it/zhugong-portfolio">junjiemi23-ship-it</a></span>
-      <span class="lang-en">Email: <a href="mailto:junjiemi23@gmail.com">junjiemi23@gmail.com</a> · GitHub: <a href="https://github.com/junjiemi23-ship-it/zhugong-portfolio">junjiemi23-ship-it</a></span>
-    </p>
-  </section>
+    <section class="section-grid shell" id="about">
+      <div class="section-heading">
+        <p class="section-kicker">What I bring</p>
+        <h2><span class="lang-zh">不仅会使用工具，更重视交付结果。</span><span class="lang-en">Beyond using tools, I focus on useful outcomes.</span></h2>
+      </div>
+      <div class="intro-copy">
+        <p>
+          <span class="lang-zh">我正在成长为一名能连接需求、AI 工具与实际交付的实践者。面对陌生问题，我会先拆解目标，再选择合适工具，记录过程并持续迭代。</span>
+          <span class="lang-en">I am growing into a practitioner who connects real needs, AI tools, and practical delivery. When facing an unfamiliar problem, I clarify the goal, choose the right tools, document the process, and iterate.</span>
+        </p>
+        <div class="capabilities">
+          <article class="capability">
+            <span class="capability-index">01</span>
+            <h3><span class="lang-zh">智能体协作</span><span class="lang-en">Agent collaboration</span></h3>
+            <p><span class="lang-zh">设计角色分工、审阅门和交接流程，让多个 AI 智能体围绕同一目标稳定协作。</span><span class="lang-en">Design roles, review gates, and handoffs so multiple AI agents can work toward one goal reliably.</span></p>
+          </article>
+          <article class="capability">
+            <span class="capability-index">02</span>
+            <h3><span class="lang-zh">轻量 Web 落地</span><span class="lang-en">Lightweight web delivery</span></h3>
+            <p><span class="lang-zh">把想法整理为可访问、可维护的网页成果，兼顾响应式、可读性和部署流程。</span><span class="lang-en">Turn ideas into accessible, maintainable web outcomes with responsive layouts and practical deployment.</span></p>
+          </article>
+          <article class="capability">
+            <span class="capability-index">03</span>
+            <h3><span class="lang-zh">调研与文档</span><span class="lang-en">Research &amp; documentation</span></h3>
+            <p><span class="lang-zh">检索、筛选并组织信息，把复杂过程沉淀为能复查、能复用的文档和工作流。</span><span class="lang-en">Retrieve, evaluate, and organize information into reviewable, reusable documentation and workflows.</span></p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-  <section class="projects">
-    <h2><span class="lang-zh">项目</span><span class="lang-en">Projects</span></h2>
-    <div class="grid">
-      <a class="card" href="https://github.com/junjiemi23-ship-it/zhugong-portfolio/tree/main/holiday-pages">
-        <span class="name">holiday-pages</span>
-        <span class="desc"><span class="lang-zh">节假日特定网页：节日/节点主题页、贺卡、倒计时、交互活动页。</span><span class="lang-en">Holiday web pages: themed pages, cards, countdowns, interactive event pages.</span></span>
-        <span class="badge plan"><span class="lang-zh">待定</span><span class="lang-en">TBD</span></span>
-      </a>
-      <a class="card" href="https://github.com/junjiemi23-ship-it/zhugong-portfolio/tree/main/surveys">
-        <span class="name">surveys</span>
-        <span class="desc"><span class="lang-zh">调研数据问卷：问卷构建、数据采集与清洗脚本。</span><span class="lang-en">Research surveys: questionnaire design, data collection &amp; cleaning scripts.</span></span>
-        <span class="badge plan"><span class="lang-zh">规划中</span><span class="lang-en">Planned</span></span>
-      </a>
-      <a class="card" href="https://github.com/junjiemi23-ship-it/zhugong-portfolio/tree/main/ai-chat">
-        <span class="name">ai-chat</span>
-        <span class="desc"><span class="lang-zh">AI 对话平台：对话/助手接入实验与对比。</span><span class="lang-en">AI chat platform: assistant integration experiments &amp; comparisons.</span></span>
-        <span class="badge plan"><span class="lang-zh">规划中</span><span class="lang-en">Planned</span></span>
-      </a>
-      <a class="card" href="https://github.com/junjiemi23-ship-it/zhugong-portfolio/tree/main/chat-companion">
-        <span class="name">chat-companion</span>
-        <span class="desc"><span class="lang-zh">AI 聊天搭子：基于对话数据的角色模拟（仅含脱敏示例）。</span><span class="lang-en">AI chat companion: role-play from dialogue data (sanitized samples only).</span></span>
-        <span class="badge plan"><span class="lang-zh">规划中</span><span class="lang-en">Planned</span></span>
-      </a>
-      <a class="card" href="https://github.com/junjiemi23-ship-it/zhugong-portfolio/tree/main/web-access">
-        <span class="name">web-access</span>
-        <span class="desc"><span class="lang-zh">AI 接入日常 Chrome 访问通道：实战记录 + Clash 分流指南。</span><span class="lang-en">AI via daily Chrome: field notes + Clash routing guide.</span></span>
-        <span class="badge done"><span class="lang-zh">已实践</span><span class="lang-en">Practiced</span></span>
-      </a>
-      <a class="card" href="https://github.com/junjiemi23-ship-it/zhugong-portfolio/tree/main/web-research">
-        <span class="name">web-research</span>
-        <span class="desc"><span class="lang-zh">网络真实资源大数据查找：公开资源的检索、聚合与归类。</span><span class="lang-en">Web research: retrieval, aggregation &amp; categorization of open resources.</span></span>
-        <span class="badge plan"><span class="lang-zh">规划中</span><span class="lang-en">Planned</span></span>
-      </a>
-      <a class="card" href="https://github.com/junjiemi23-ship-it/zhugong-portfolio/tree/main/docs">
-        <span class="name">docs</span>
-        <span class="desc"><span class="lang-zh">文档与协作约定：含《双 AI 共管协议》等。</span><span class="lang-en">Docs &amp; collaboration conventions, incl. the Dual-AI co-management agreement.</span></span>
-        <span class="badge done"><span class="lang-zh">已建</span><span class="lang-en">Built</span></span>
-      </a>
-    </div>
-  </section>
+    <section class="section-grid shell" id="projects">
+      <div class="section-heading">
+        <p class="section-kicker">Selected work</p>
+        <h2><span class="lang-zh">项目与实践</span><span class="lang-en">Projects &amp; practice</span></h2>
+      </div>
+      <div class="project-stack">
+        <a class="project" href="https://github.com/junjiemi23-ship-it/zhugong-portfolio/tree/main/web-access" target="_blank" rel="noreferrer">
+          <span class="project-name">web-access</span>
+          <span class="project-copy"><strong><span class="lang-zh">让 AI 使用日常浏览器环境完成真实网络任务</span><span class="lang-en">Giving AI access to a real browser workflow</span></strong><span><span class="lang-zh">整理 Chrome 登录态接入、网络分流与实战记录，体现工具配置、问题排查和文档沉淀能力。</span><span class="lang-en">Field notes on authenticated Chrome access, network routing, troubleshooting, and reusable documentation.</span></span></span>
+          <span class="status done"><span class="lang-zh">已实践</span><span class="lang-en">Practiced</span><span class="project-arrow">↗</span></span>
+        </a>
 
-  <footer>
-    <a href="https://github.com/junjiemi23-ship-it/zhugong-portfolio">GitHub</a>
-    <a href="mailto:junjiemi23@gmail.com">junjiemi23@gmail.com</a>
-    <span>© 2026 主公的粮仓</span>
+        <a class="project" href="https://github.com/junjiemi23-ship-it/zhugong-portfolio/tree/main/docs" target="_blank" rel="noreferrer">
+          <span class="project-name">docs</span>
+          <span class="project-copy"><strong><span class="lang-zh">建立多智能体协作规则与审阅机制</span><span class="lang-en">Structuring collaboration across multiple AI agents</span></strong><span><span class="lang-zh">记录角色边界、任务交接、风险红线与发布流程，让协作过程可追踪、可复核。</span><span class="lang-en">Documents role boundaries, handoffs, safety rules, and release gates for traceable collaboration.</span></span></span>
+          <span class="status done"><span class="lang-zh">已建立</span><span class="lang-en">Built</span><span class="project-arrow">↗</span></span>
+        </a>
+
+        <a class="project" href="https://github.com/junjiemi23-ship-it/zhugong-portfolio/tree/main/ai-chat" target="_blank" rel="noreferrer">
+          <span class="project-name">ai-chat</span>
+          <span class="project-copy"><strong><span class="lang-zh">比较不同 AI 助手的接入与对话体验</span><span class="lang-en">Comparing AI assistant integrations and chat experiences</span></strong><span><span class="lang-zh">计划围绕接入方式、使用体验和适用场景，形成可复现的对比记录。</span><span class="lang-en">Planned comparisons of integration methods, user experience, and practical use cases.</span></span></span>
+          <span class="status plan"><span class="lang-zh">规划中</span><span class="lang-en">Planned</span><span class="project-arrow">↗</span></span>
+        </a>
+
+        <a class="project" href="https://github.com/junjiemi23-ship-it/zhugong-portfolio/tree/main/web-research" target="_blank" rel="noreferrer">
+          <span class="project-name">web-research</span>
+          <span class="project-copy"><strong><span class="lang-zh">把公开网络资源整理成可用的信息资产</span><span class="lang-en">Turning open web resources into useful information assets</span></strong><span><span class="lang-zh">计划沉淀检索、验证、聚合与分类流程，提升网络调研的可靠性和复用性。</span><span class="lang-en">Planned workflows for retrieval, validation, aggregation, and categorization.</span></span></span>
+          <span class="status plan"><span class="lang-zh">规划中</span><span class="lang-en">Planned</span><span class="project-arrow">↗</span></span>
+        </a>
+
+        <a class="project" href="https://github.com/junjiemi23-ship-it/zhugong-portfolio/tree/main/surveys" target="_blank" rel="noreferrer">
+          <span class="project-name">surveys</span>
+          <span class="project-copy"><strong><span class="lang-zh">从问卷设计走向结构化数据</span><span class="lang-en">From survey design to structured data</span></strong><span><span class="lang-zh">计划覆盖问题设计、数据采集、清洗和基础分析，形成完整的小型调研流程。</span><span class="lang-en">A planned workflow for questionnaire design, collection, cleaning, and basic analysis.</span></span></span>
+          <span class="status plan"><span class="lang-zh">规划中</span><span class="lang-en">Planned</span><span class="project-arrow">↗</span></span>
+        </a>
+
+        <a class="project" href="https://github.com/junjiemi23-ship-it/zhugong-portfolio/tree/main/chat-companion" target="_blank" rel="noreferrer">
+          <span class="project-name">chat-companion</span>
+          <span class="project-copy"><strong><span class="lang-zh">探索基于脱敏数据的角色化对话</span><span class="lang-en">Exploring role-based dialogue with sanitized data</span></strong><span><span class="lang-zh">计划研究角色设定、边界控制和对话一致性，只使用可公开的脱敏示例。</span><span class="lang-en">Planned work on persona design, boundaries, and consistency using sanitized examples only.</span></span></span>
+          <span class="status plan"><span class="lang-zh">规划中</span><span class="lang-en">Planned</span><span class="project-arrow">↗</span></span>
+        </a>
+
+        <a class="project" href="https://github.com/junjiemi23-ship-it/zhugong-portfolio/tree/main/holiday-pages" target="_blank" rel="noreferrer">
+          <span class="project-name">holiday-pages</span>
+          <span class="project-copy"><strong><span class="lang-zh">节日主题页面与轻量互动创意</span><span class="lang-en">Holiday-themed pages and lightweight interactions</span></strong><span><span class="lang-zh">候选方向包括主题页、贺卡、倒计时和小型互动体验，具体形式待确定。</span><span class="lang-en">Potential directions include themed pages, cards, countdowns, and small interactive experiences.</span></span></span>
+          <span class="status plan"><span class="lang-zh">待定</span><span class="lang-en">TBD</span><span class="project-arrow">↗</span></span>
+        </a>
+      </div>
+    </section>
+
+    <section class="section-grid shell" id="method">
+      <div class="section-heading">
+        <p class="section-kicker">How I work</p>
+        <h2><span class="lang-zh">先把问题想清楚，再让工具发挥作用。</span><span class="lang-en">Clarify the problem before putting tools to work.</span></h2>
+      </div>
+      <div>
+        <div class="process">
+          <article>
+            <h3><span class="lang-zh">拆解需求</span><span class="lang-en">Clarify</span></h3>
+            <p><span class="lang-zh">确认目标、受众、约束和验收标准，避免一开始就被工具带着走。</span><span class="lang-en">Define the goal, audience, constraints, and success criteria before choosing tools.</span></p>
+          </article>
+          <article>
+            <h3><span class="lang-zh">组织协作</span><span class="lang-en">Orchestrate</span></h3>
+            <p><span class="lang-zh">为 AI 智能体划分角色、建立审阅门，并保留清晰的任务交接记录。</span><span class="lang-en">Assign roles to AI agents, add review gates, and keep handoffs traceable.</span></p>
+          </article>
+          <article>
+            <h3><span class="lang-zh">交付与复盘</span><span class="lang-en">Deliver</span></h3>
+            <p><span class="lang-zh">产出可查看的结果，验证链接与内容，再把有效方法沉淀为可复用流程。</span><span class="lang-en">Ship a reviewable result, verify it, and capture the method as a reusable workflow.</span></p>
+          </article>
+        </div>
+        <p class="personal-note">
+          <span class="lang-zh">工作之外，我持续进行写作、短视频创作、健身和英语学习。这些长期习惯帮助我保持表达力、执行力与持续输入。</span>
+          <span class="lang-en">Outside project work, I keep practicing writing, short-form content creation, fitness, and English—long-term habits that strengthen communication, execution, and continuous learning.</span>
+        </p>
+      </div>
+    </section>
+
+    <section class="contact-block shell" id="contact">
+      <p class="section-kicker">Open to opportunities</p>
+      <h2><span class="lang-zh">如果你在寻找一位愿意学习、能把 AI 用到实际问题中的新人，我们可以聊聊。</span><span class="lang-en">Looking for an early-career builder who applies AI to real problems? Let's talk.</span></h2>
+      <p><span class="lang-zh">欢迎交流 AI 应用、智能体协作、轻量 Web 项目与实践机会。</span><span class="lang-en">Open to conversations about applied AI, agent workflows, lightweight web projects, and practical opportunities.</span></p>
+      <div class="contact-links">
+        <a href="mailto:junjiemi23@gmail.com"><span class="lang-zh">发送邮件</span><span class="lang-en">Send an email</span> ↗</a>
+        <a href="https://github.com/junjiemi23-ship-it/zhugong-portfolio" target="_blank" rel="noreferrer"><span class="lang-zh">查看 GitHub</span><span class="lang-en">View GitHub</span> ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="shell">
+    <span>© 2026 <span class="lang-zh">主公的粮仓</span><span class="lang-en">Zhugong's Granary</span></span>
+    <span><span class="lang-zh">以真实项目持续成长</span><span class="lang-en">Learning through real projects</span> · <a href="mailto:junjiemi23@gmail.com">junjiemi23@gmail.com</a></span>
   </footer>
 
-  <script>
-    var btn = document.getElementById('langToggle');
-    btn.addEventListener('click', function () {
-      var en = document.body.classList.toggle('en');
-      btn.textContent = en ? '中文' : 'EN';
-      document.documentElement.lang = en ? 'en' : 'zh-CN';
+<script>
+  (function () {
+    var button = document.getElementById('langToggle');
+    var saved = localStorage.getItem('portfolio-language');
+
+    function setLanguage(isEnglish) {
+      document.body.classList.toggle('en', isEnglish);
+      document.documentElement.lang = isEnglish ? 'en' : 'zh-CN';
+      button.textContent = isEnglish ? '中文' : 'EN';
+      button.setAttribute('aria-label', isEnglish ? '切换到中文' : 'Switch to English');
+      localStorage.setItem('portfolio-language', isEnglish ? 'en' : 'zh-CN');
+    }
+
+    setLanguage(saved === 'en');
+    button.addEventListener('click', function () {
+      setLanguage(!document.body.classList.contains('en'));
     });
-  </script>
+  })();
+</script>
 </body>
 </html>
