@@ -23,3 +23,6 @@ build/
 # 编辑器
 .vscode/
 .idea/
+
+# 本地工具状态（含项目 ID，不入库）
+.edgeone/
