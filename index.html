@@ -332,10 +332,14 @@
   }
   .project:hover { color: var(--blue); padding-left: 0.65rem; }
   .project:first-child:hover { padding-left: clamp(1.8rem, 5vw, 3rem); }
-  .project-name { font-family: Georgia, serif; font-size: 1.1rem; font-weight: 760; }
-  .project-copy strong { display: block; margin-bottom: 0.25rem; color: var(--ink); font-size: 1rem; }
-  .project-copy span { color: var(--muted); font-size: 0.9rem; }
-  .status {
+.project-name { font-family: Georgia, serif; font-size: 1.1rem; font-weight: 760; }
+.project-copy strong { display: block; margin-bottom: 0.25rem; color: var(--ink); font-size: 1rem; }
+.project-copy span { color: var(--muted); font-size: 0.9rem; }
+.project-role { display: block; margin-top: 0.45rem; font-size: 0.88rem; color: var(--ink); }
+.project-role b { font-weight: 700; }
+.project-tags { display: block; margin-top: 0.3rem; font-size: 0.8rem; color: var(--muted); }
+.project-tags b { color: var(--ink); font-weight: 650; }
+.status {
     white-space: nowrap;
     padding: 0.32rem 0.65rem;
     border: 1px solid currentColor;
@@ -566,13 +570,25 @@
         <a class="project" href="https://github.com/junjiemi23-ship-it/zhugong-portfolio/tree/main/web-access" target="_blank" rel="noreferrer">
           <span class="project-name">web-access</span>
           <span class="project-copy"><strong><span class="lang-zh">让 AI 使用日常浏览器环境完成真实网络任务</span><span class="lang-en">Giving AI access to a real browser workflow</span></strong><span><span class="lang-zh">整理 Chrome 登录态接入、网络分流与实战记录，体现工具配置、问题排查和文档沉淀能力。</span><span class="lang-en">Field notes on authenticated Chrome access, network routing, troubleshooting, and reusable documentation.</span></span></span>
+          <span class="project-role"><b><span class="lang-zh">我的角色：</span><span class="lang-en">My role: </span></b><span class="lang-zh">主导方案与排错，组织多智能体协作完成 Chrome 接入与规则分流，沉淀 3 篇实战文档</span><span class="lang-en">led planning and debugging of a multi-agent workflow for Chrome access and routing; shipped 3 field guides</span></span>
+          <span class="project-tags"><b><span class="lang-zh">技术：</span><span class="lang-en">Stack: </span></b><span class="lang-zh">Chrome CDP · Clash 规则分流 · 文档沉淀</span><span class="lang-en">Chrome CDP · Clash routing · documentation</span></span>
           <span class="status done"><span class="lang-zh">已实践</span><span class="lang-en">Practiced</span><span class="project-arrow">↗</span></span>
         </a>
 
         <a class="project" href="https://github.com/junjiemi23-ship-it/zhugong-portfolio/tree/main/docs" target="_blank" rel="noreferrer">
           <span class="project-name">docs</span>
           <span class="project-copy"><strong><span class="lang-zh">建立多智能体协作规则与审阅机制</span><span class="lang-en">Structuring collaboration across multiple AI agents</span></strong><span><span class="lang-zh">记录角色边界、任务交接、风险红线与发布流程，让协作过程可追踪、可复核。</span><span class="lang-en">Documents role boundaries, handoffs, safety rules, and release gates for traceable collaboration.</span></span></span>
+          <span class="project-role"><b><span class="lang-zh">我的角色：</span><span class="lang-en">My role: </span></b><span class="lang-zh">设计并落地协作治理：角色边界、审阅门、风险红线与发布流程（共管协议 v1.2）</span><span class="lang-en">designed collaboration governance: role boundaries, review gates, safety rules, and release flow (v1.2)</span></span>
+          <span class="project-tags"><b><span class="lang-zh">技术：</span><span class="lang-en">Stack: </span></b><span class="lang-zh">多智能体治理 · Markdown 文档 · 审阅门</span><span class="lang-en">Multi-agent governance · Markdown · review gates</span></span>
           <span class="status done"><span class="lang-zh">已建立</span><span class="lang-en">Built</span><span class="project-arrow">↗</span></span>
+        </a>
+
+        <a class="project" href="https://github.com/junjiemi23-ship-it/zhugong-portfolio/tree/main/overseas-deploy" target="_blank" rel="noreferrer">
+          <span class="project-name">overseas-deploy</span>
+          <span class="project-copy"><strong><span class="lang-zh">国内账号免备案海外直连部署法 + 招聘官可见性研究</span><span class="lang-en">No-ICP overseas deployment method + recruiter visibility</span></strong><span><span class="lang-zh">整理国内账号区域锁→Cloudflare Pages 直连的决策树、选型对比与 SEO 迁移清单，并研究作品集如何被招聘官看到。</span><span class="lang-en">A decision tree, selection comparison, and SEO migration checklist from region-locked EdgeOne to Cloudflare Pages, plus how to make a portfolio visible to recruiters.</span></span></span>
+          <span class="project-role"><b><span class="lang-zh">我的角色：</span><span class="lang-en">My role: </span></b><span class="lang-zh">主导部署选型与迁移：EdgeOne 区域锁 → Cloudflare Pages 直连，含 SEO 迁移与招聘官可见性研究，本站即产物</span><span class="lang-en">led deployment selection and migration: region-locked EdgeOne → Cloudflare Pages, incl. SEO migration and recruiter-visibility research; this site is the artifact</span></span>
+          <span class="project-tags"><b><span class="lang-zh">技术：</span><span class="lang-en">Stack: </span></b><span class="lang-zh">Cloudflare Pages · DNS/SEO · 决策树</span><span class="lang-en">Cloudflare Pages · DNS/SEO · decision tree</span></span>
+          <span class="status done"><span class="lang-zh">已实践</span><span class="lang-en">Practiced</span><span class="project-arrow">↗</span></span>
         </a>
 
         <a class="project" href="https://github.com/junjiemi23-ship-it/zhugong-portfolio/tree/main/ai-chat" target="_blank" rel="noreferrer">
@@ -603,12 +619,6 @@
           <span class="project-name">holiday-pages</span>
           <span class="project-copy"><strong><span class="lang-zh">节日主题页面与轻量互动创意</span><span class="lang-en">Holiday-themed pages and lightweight interactions</span></strong><span><span class="lang-zh">候选方向包括主题页、贺卡、倒计时和小型互动体验，具体形式待确定。</span><span class="lang-en">Potential directions include themed pages, cards, countdowns, and small interactive experiences.</span></span></span>
           <span class="status plan"><span class="lang-zh">待定</span><span class="lang-en">TBD</span><span class="project-arrow">↗</span></span>
-        </a>
-
-        <a class="project" href="https://github.com/junjiemi23-ship-it/zhugong-portfolio/tree/main/overseas-deploy" target="_blank" rel="noreferrer">
-          <span class="project-name">overseas-deploy</span>
-          <span class="project-copy"><strong><span class="lang-zh">国内账号免备案海外直连部署法 + 招聘官可见性研究</span><span class="lang-en">No-ICP overseas deployment method + recruiter visibility</span></strong><span><span class="lang-zh">整理国内账号区域锁→Cloudflare Pages 直连的决策树、选型对比与 SEO 迁移清单，并研究作品集如何被招聘官看到。</span><span class="lang-en">A decision tree,选型 comparison, and SEO migration checklist from region-locked EdgeOne to Cloudflare Pages, plus how to make a portfolio visible to recruiters.</span></span></span>
-          <span class="status done"><span class="lang-zh">已实践</span><span class="lang-en">Practiced</span><span class="project-arrow">↗</span></span>
         </a>
       </div>
     </section>
