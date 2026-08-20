@@ -311,13 +311,14 @@
   .capability h3 { margin: 0.6rem 0; font-size: 1.02rem; }
   .capability p { margin-bottom: 0; color: var(--muted); font-size: 0.9rem; }
 
-  .project-stack { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; align-items: start; }
+  .project-stack { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; align-items: stretch; }
   .project {
     display: grid;
-    grid-template-columns: minmax(140px, 0.34fr) minmax(0, 1fr) auto;
-    gap: 1rem;
-    align-items: center;
-    padding: 1.1rem 1.15rem;
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    align-content: start;
+    position: relative;
+    padding: 1.2rem 1.25rem 1.15rem;
     border: 1px solid var(--line);
     border-radius: var(--radius-md);
     background: var(--surface);
@@ -332,7 +333,9 @@
   }
   .project:hover { color: var(--blue); border-color: var(--blue); transform: translateY(-2px); }
   .project:first-child:hover { border-color: var(--ink); }
-.project-name { font-family: Georgia, serif; font-size: 1.1rem; font-weight: 760; }
+  .project-name { font-family: Georgia, serif; font-size: 1.1rem; font-weight: 760; padding-right: 6.2rem; }
+  .project .status { position: absolute; top: 1.1rem; right: 1.15rem; }
+  .project:first-child .status { top: clamp(1.4rem, 3.5vw, 2rem); right: clamp(1.4rem, 3.5vw, 2rem); }
 .project-copy strong { display: block; margin-bottom: 0.25rem; color: var(--ink); font-size: 1rem; }
 .project-copy span { color: var(--muted); font-size: 0.9rem; }
 .project-role { display: block; margin-top: 0.45rem; font-size: 0.88rem; color: var(--ink); }
@@ -447,8 +450,6 @@
     .capability + .capability { padding-left: 0; border-left: 0; border-top: 1px solid var(--line); }
     .process article { min-height: auto; }
     .project-stack { grid-template-columns: 1fr; }
-    .project { grid-template-columns: 1fr auto; gap: 0.65rem 1rem; }
-    .project-copy { grid-column: 1 / -1; }
   }
 
   @media (max-width: 560px) {
