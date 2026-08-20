@@ -384,6 +384,31 @@
     font-size: 0.9rem;
   }
 
+  .update-list { list-style: none; margin: 0; padding: 0; }
+  .update-item {
+    display: grid;
+    grid-template-columns: 6rem 1fr;
+    gap: 1.4rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .update-item:first-child { border-top: 1px solid var(--line); }
+  .update-date {
+    color: var(--orange);
+    font-family: Georgia, serif;
+    font-size: 0.86rem;
+    font-weight: 820;
+    letter-spacing: 0.02em;
+  }
+  .update-item h3 { margin: 0 0 0.3rem; font-size: 1.02rem; }
+  .update-item p { margin: 0; color: var(--muted); font-size: 0.9rem; }
+  .update-foot { margin: 1.5rem 0 0; color: var(--muted); font-size: 0.82rem; }
+
+  @media (max-width: 560px) {
+    .update-item { grid-template-columns: 1fr; gap: 0.3rem; }
+    .update-date { font-size: 0.78rem; }
+  }
+
   .contact-block {
     position: relative;
     overflow: hidden;
@@ -485,6 +510,7 @@
       <nav aria-label="Primary navigation">
         <a href="#about"><span class="lang-zh">能力</span><span class="lang-en">Strengths</span></a>
         <a href="#projects"><span class="lang-zh">项目</span><span class="lang-en">Projects</span></a>
+        <a href="#updates"><span class="lang-zh">动态</span><span class="lang-en">Updates</span></a>
         <a href="#contact"><span class="lang-zh">联系</span><span class="lang-en">Contact</span></a>
       </nav>
       <button id="langToggle" type="button" aria-label="Switch to English">EN</button>
@@ -649,6 +675,46 @@
           <span class="lang-zh">工作之外，我持续进行写作、短视频创作、健身和英语学习。这些长期习惯帮助我保持表达力、执行力与持续输入。</span>
           <span class="lang-en">Outside project work, I keep practicing writing, short-form content creation, fitness, and English—long-term habits that strengthen communication, execution, and continuous learning.</span>
         </p>
+      </div>
+    </section>
+
+    <section class="section-grid shell" id="updates">
+      <div class="section-heading">
+        <p class="section-kicker">Recent updates</p>
+        <h2><span class="lang-zh">最近在做什么</span><span class="lang-en">What I've been building</span></h2>
+      </div>
+      <div>
+        <ul class="update-list">
+          <li class="update-item">
+            <span class="update-date">2026-08</span>
+            <div>
+              <h3><span class="lang-zh">海外免备案部署落地</span><span class="lang-en">No-ICP overseas deployment shipped</span></h3>
+              <p><span class="lang-zh">完成从区域锁部署到 Cloudflare Pages 直连的迁移，整理出选型对比与 SEO 迁移清单，本站即该方法的产物。</span><span class="lang-en">Migrated from a region-locked setup to Cloudflare Pages with a selection comparison and SEO migration checklist—this site is the artifact.</span></p>
+            </div>
+          </li>
+          <li class="update-item">
+            <span class="update-date">2026-08</span>
+            <div>
+              <h3><span class="lang-zh">浏览器自动化实战文档沉淀</span><span class="lang-en">Browser-automation field guides</span></h3>
+              <p><span class="lang-zh">围绕日常浏览器登录态接入、网络分流与问题排查，产出 3 篇可复用的实战记录与指南。</span><span class="lang-en">Three reusable field guides on authenticated browser access, network routing, and troubleshooting.</span></p>
+            </div>
+          </li>
+          <li class="update-item">
+            <span class="update-date">2026-08</span>
+            <div>
+              <h3><span class="lang-zh">多智能体协作治理落地</span><span class="lang-en">Multi-agent collaboration governance</span></h3>
+              <p><span class="lang-zh">建立角色边界、审阅门与协作规范的文档体系，让多个智能体的协作过程可追踪、可复核。</span><span class="lang-en">A documented system of role boundaries, review gates, and collaboration rules for traceable multi-agent work.</span></p>
+            </div>
+          </li>
+          <li class="update-item">
+            <span class="update-date">持续</span>
+            <div>
+              <h3><span class="lang-zh">作品集随实践持续扩充</span><span class="lang-en">Portfolio keeps growing</span></h3>
+              <p><span class="lang-zh">仓库保持开源，项目随真实实践逐步增加，每个都力求可运行、可说明、可复用。</span><span class="lang-en">The repo stays open; projects are added as real practice grows—each one runnable, explainable, and reusable.</span></p>
+            </div>
+          </li>
+        </ul>
+        <p class="update-foot"><span class="lang-zh">最后更新：2026 年 8 月 · 以真实项目持续成长</span><span class="lang-en">Last updated: August 2026 · learning through real projects</span></p>
       </div>
     </section>
 
