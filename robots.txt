@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://zhugong-portfolio.edgeone.cool/sitemap.xml
+Sitemap: https://zhugong-portfolio.pages.dev/sitemap.xml
