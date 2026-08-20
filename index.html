@@ -169,7 +169,7 @@
     grid-template-columns: minmax(0, 1.45fr) minmax(270px, 0.55fr);
     gap: clamp(2.5rem, 8vw, 7rem);
     align-items: end;
-    min-height: min(760px, 82vh);
+    min-height: min(640px, 72vh);
     padding-block: var(--space-xl) var(--space-lg);
   }
 
@@ -311,27 +311,27 @@
   .capability h3 { margin: 0.6rem 0; font-size: 1.02rem; }
   .capability p { margin-bottom: 0; color: var(--muted); font-size: 0.9rem; }
 
-  .project-stack { display: grid; gap: 1rem; }
+  .project-stack { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; align-items: start; }
   .project {
     display: grid;
-    grid-template-columns: minmax(150px, 0.32fr) minmax(0, 1fr) auto;
-    gap: 1.5rem;
+    grid-template-columns: minmax(140px, 0.34fr) minmax(0, 1fr) auto;
+    gap: 1rem;
     align-items: center;
-    padding: 1.25rem 0;
-    border-bottom: 1px solid var(--line);
-    text-decoration: none;
-    transition: padding 220ms var(--ease), color 220ms var(--ease);
-  }
-  .project:first-child {
-    margin-bottom: 0.7rem;
-    padding: clamp(1.4rem, 4vw, 2.4rem);
-    border: 1px solid var(--ink);
+    padding: 1.1rem 1.15rem;
+    border: 1px solid var(--line);
     border-radius: var(--radius-md);
     background: var(--surface);
+    text-decoration: none;
+    transition: border-color 220ms var(--ease), color 220ms var(--ease), transform 220ms var(--ease);
+  }
+  .project:first-child {
+    grid-column: 1 / -1;
+    padding: clamp(1.4rem, 4vw, 2.2rem);
+    border: 1px solid var(--ink);
     box-shadow: var(--shadow);
   }
-  .project:hover { color: var(--blue); padding-left: 0.65rem; }
-  .project:first-child:hover { padding-left: clamp(1.8rem, 5vw, 3rem); }
+  .project:hover { color: var(--blue); border-color: var(--blue); transform: translateY(-2px); }
+  .project:first-child:hover { border-color: var(--ink); }
 .project-name { font-family: Georgia, serif; font-size: 1.1rem; font-weight: 760; }
 .project-copy strong { display: block; margin-bottom: 0.25rem; color: var(--ink); font-size: 1rem; }
 .project-copy span { color: var(--muted); font-size: 0.9rem; }
@@ -446,6 +446,7 @@
     .capability { padding: 1.2rem 0; }
     .capability + .capability { padding-left: 0; border-left: 0; border-top: 1px solid var(--line); }
     .process article { min-height: auto; }
+    .project-stack { grid-template-columns: 1fr; }
     .project { grid-template-columns: 1fr auto; gap: 0.65rem 1rem; }
     .project-copy { grid-column: 1 / -1; }
   }
