@@ -1,0 +1,48 @@
+# monitor_codex.py 配置样例（复制为 config.yaml 后填写，权限 chmod 600）
+# 说明：本文件不含真实密钥；真实 config.yaml 请放 serverchan_sendkey 并设权限 600
+#       明文不落文件/聊天/仓库
+# 列表一律用内联方括号写法 [a, b, c]（load_config 同时兼容 YAML 块列表 `-` 写法，二选一）。
+
+serverchan_sendkey: ""          # Server酱 SendKey（默认关闭；可选）。留空=dry_run 仅打印
+push_enabled: true
+
+# ============ 通知通道（邮箱为主，Server酱 代码保留默认关） ============
+email_enabled: true             # 主通道：SMTP 邮箱推送
+serverchan_enabled: false        # Server酱 备用通道，默认关闭（将来想换回微信不必重写代码）
+smtp_host: smtp.qq.com           # SMTP 服务器（示例：QQ 邮箱）
+smtp_port: 465                   # SSL 端口
+smtp_user: ""                    # 发件邮箱（示例：QQ 邮箱账户）
+smtp_pass: ""                    # SMTP 授权码（非邮箱密码）——由使用者本人填写
+to_email: ""                     # 收件邮箱（手机邮箱 App 可收推送；可与 smtp_user 相同）
+# 提醒：smtp_pass 是敏感凭据，由使用者本人在 config.yaml 填写（chmod 600），不经任何 AI 之手。
+
+dry_run: true                    # 本机验证=true；正式环境改 false 才真实推送
+
+# 主信号：xcancel 多实例（故障转移，按顺序尝试，不可达/失败自动跳过下一个）。
+xcancel_instances: ["https://xcancel.com/thsottiaux", "https://nitter.tiekoetter.com/thsottiaux"]
+# - https://你自托管的实例/thsottiaux   # 自托管实例最稳，填入上方列表
+
+tibogpt_url: https://tibogpt.com
+
+# 主信号源：xcancel（默认，完整推文）；tibogpt（状态页判定，公共镜像不可达时的零成本替代）。
+# 公共镜像可达性不稳定，可随时切换 primary_source。
+primary_source: tibogpt
+
+# 社区旁证 / 媒体快证：本期仅保留占位，cycle() 未接入抓取，不参与主触发。
+# 接入时把对应 enabled 改 true 并实现 fetch + 去噪即可。
+redlib_url: https://redlib.catsarch.com/r/codex/search?q=codex%20reset
+redlib_enabled: false
+ithome_rss: https://www.ithome.com/rss/
+ithome_enabled: false
+
+# 白名单关键词：命中即进入『疑似』
+keywords: ["banked reset", "credit every", "reset button", "usage limit", "bear great news", "20m active users"]
+exclude: ["sub2api"]            # 误报排除（谈风控等普通讨论时不误推）
+
+check_interval_min: 10          # 定时巡检间隔（分钟）
+tibogpt_interval_min: 30
+redlib_interval_min: 360
+cooldown_hours: 24              # 同事件 24h 冷却防重
+
+http_timeout: 20
+user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"
