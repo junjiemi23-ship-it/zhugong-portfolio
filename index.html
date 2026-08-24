@@ -3,17 +3,22 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="主公的粮仓 / Zhugong's Granary — 聚焦 AI 应用、智能体协作与轻量 Web 落地的个人项目作品集。" />
+<meta name="description" content="主公的粮仓 / Zhugong's Granary — 把 AI 接入真实工作流，做成可以运行、可以验证的自动化项目。" />
   <meta name="color-scheme" content="light dark" />
   <meta name="robots" content="index,follow,max-image-preview:large" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="主公的粮仓 / Zhugong's Granary" />
-  <meta property="og:description" content="聚焦 AI 应用、智能体协作与轻量 Web 落地的个人项目作品集。" />
+  <meta property="og:description" content="AI 应用、智能体协作与自动化实践作品集：真实问题、公开证据、可验证交付。" />
   <meta property="og:url" content="https://zhugong-portfolio.pages.dev/" />
+  <meta property="og:image" content="https://zhugong-portfolio.pages.dev/assets/og-cover.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="主公的粮仓——AI 应用、智能体协作与自动化实践作品集" />
   <meta property="og:locale" content="zh_CN" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="主公的粮仓 / Zhugong's Granary" />
-  <meta name="twitter:description" content="聚焦 AI 应用、智能体协作与轻量 Web 落地的个人项目作品集。" />
+  <meta name="twitter:description" content="AI 应用、智能体协作与自动化实践作品集：真实问题、公开证据、可验证交付。" />
+  <meta name="twitter:image" content="https://zhugong-portfolio.pages.dev/assets/og-cover.png" />
   <link rel="canonical" href="https://zhugong-portfolio.pages.dev/" />
   <script type="application/ld+json">
   {
@@ -23,11 +28,11 @@
     "url": "https://zhugong-portfolio.pages.dev/",
     "email": "junjiemi23@gmail.com",
     "sameAs": ["https://github.com/junjiemi23-ship-it"],
-    "description": "聚焦 AI 应用、智能体协作与轻量 Web 落地的个人项目作品集。",
-    "knowsAbout": ["AI Agents", "Web Development", "Research", "Documentation"]
+    "description": "把 AI 接入真实工作流，做成可以运行、可以验证的自动化项目。",
+    "knowsAbout": ["Applied AI", "AI Agents", "Automation", "Web Development", "Research", "Documentation"]
   }
   </script>
-  <title>主公的粮仓 / Zhugong's Granary</title>
+  <title>主公的粮仓 | AI 应用与自动化作品集</title>
 <style>
   :root {
     --paper: #f4f1e9;
@@ -275,6 +280,28 @@
   }
   .hero-note dd { margin: 0; font-weight: 720; }
 
+  .evidence-strip {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    margin-bottom: var(--space-lg);
+    border-block: 1px solid var(--line);
+  }
+  .evidence-item {
+    min-width: 0;
+    padding: 1.15rem 1.2rem;
+  }
+  .evidence-item + .evidence-item { border-left: 1px solid var(--line); }
+  .evidence-label {
+    display: block;
+    margin-bottom: 0.25rem;
+    color: var(--orange);
+    font-size: 0.7rem;
+    font-weight: 820;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .evidence-value { display: block; font-size: 0.92rem; font-weight: 740; line-height: 1.45; }
+
   section { scroll-margin-top: 2rem; }
   .section-grid {
     display: grid;
@@ -353,6 +380,89 @@
   .status.done { color: var(--green); }
   .status.plan { color: var(--blue); }
   .project-arrow { margin-left: 0.35rem; font-size: 1.1rem; }
+
+  .featured-stack { display: grid; gap: 1.2rem; }
+  .case-study {
+    position: relative;
+    overflow: hidden;
+    padding: clamp(1.4rem, 4vw, 2.25rem);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    background: var(--surface);
+  }
+  .case-study:first-child { border-color: var(--ink); box-shadow: var(--shadow); }
+  .case-study::before {
+    content: attr(data-index);
+    position: absolute;
+    right: 1.2rem;
+    bottom: -1.6rem;
+    color: color-mix(in srgb, var(--blue) 9%, transparent);
+    font-family: Georgia, serif;
+    font-size: clamp(7rem, 18vw, 12rem);
+    line-height: 1;
+    pointer-events: none;
+  }
+  .case-head {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--line);
+  }
+  .case-name { color: var(--orange); font-family: Georgia, serif; font-size: 0.86rem; font-weight: 760; }
+  .case-study h3 {
+    position: relative;
+    z-index: 1;
+    max-width: 24ch;
+    margin: 1.25rem 0 0.7rem;
+    font-family: "Iowan Old Style", "Palatino Linotype", "Noto Serif SC", "Songti SC", serif;
+    font-size: clamp(1.55rem, 3vw, 2.35rem);
+    line-height: 1.18;
+    letter-spacing: -0.025em;
+  }
+  .case-summary { position: relative; z-index: 1; max-width: 52rem; color: var(--muted); }
+  .case-facts {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0;
+    margin: 1.35rem 0;
+    border-block: 1px solid var(--line);
+  }
+  .case-facts div { padding: 1rem 1rem 1rem 0; }
+  .case-facts div:nth-child(even) { padding-left: 1rem; border-left: 1px solid var(--line); }
+  .case-facts dt { margin-bottom: 0.35rem; color: var(--muted); font-size: 0.7rem; font-weight: 820; letter-spacing: 0.1em; text-transform: uppercase; }
+  .case-facts dd { margin: 0; font-size: 0.92rem; line-height: 1.65; }
+  .case-flow {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.45rem;
+    margin: 0 0 1.25rem;
+    padding: 0;
+    list-style: none;
+  }
+  .case-flow li { display: inline-flex; align-items: center; gap: 0.45rem; color: var(--muted); font-size: 0.78rem; font-weight: 720; }
+  .case-flow li:not(:last-child)::after { content: "→"; color: var(--orange); }
+  .case-footer { position: relative; z-index: 1; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+  .case-tags { color: var(--muted); font-size: 0.78rem; }
+  .text-link { color: var(--blue); font-size: 0.88rem; font-weight: 780; text-decoration-thickness: 1px; text-underline-offset: 0.25em; }
+
+  .archive-block { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px dashed var(--line); }
+  .archive-head { display: flex; align-items: end; justify-content: space-between; gap: 1rem; margin-bottom: 1rem; }
+  .archive-head h3 { margin: 0; font-size: 1.05rem; }
+  .archive-head p { margin: 0; color: var(--muted); font-size: 0.8rem; }
+  .project-stack.compact .project { box-shadow: none; }
+  .project-stack.compact .project:first-child { grid-column: auto; padding: 1.2rem 1.25rem 1.15rem; border-color: var(--line); }
+  .project-stack.compact .project:first-child:hover { border-color: var(--blue); }
+  .project-stack.labs { opacity: 0.78; }
+  .project-stack.labs .project { background: color-mix(in srgb, var(--surface) 70%, transparent); }
 
   .process {
     display: grid;
@@ -475,17 +585,27 @@
     .capability + .capability { padding-left: 0; border-left: 0; border-top: 1px solid var(--line); }
     .process article { min-height: auto; }
     .project-stack { grid-template-columns: 1fr; }
+    .evidence-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .evidence-item:nth-child(3) { border-left: 0; border-top: 1px solid var(--line); }
+    .evidence-item:nth-child(4) { border-top: 1px solid var(--line); }
+    .case-facts { grid-template-columns: 1fr; }
+    .case-facts div, .case-facts div:nth-child(even) { padding: 0.9rem 0; border-left: 0; }
+    .case-facts div + div { border-top: 1px solid var(--line); }
   }
 
   @media (max-width: 560px) {
     .shell { width: min(100% - 1.35rem, 1120px); }
-    header { align-items: flex-start; }
-    .nav-wrap { align-items: flex-end; flex-direction: column-reverse; gap: 0.55rem; }
-    nav { gap: 0.75rem; }
-    nav a { font-size: 0.78rem; }
+    header { align-items: flex-start; flex-wrap: wrap; }
+    .brand { max-width: calc(100% - 4rem); }
+    .nav-wrap { width: 100%; align-items: center; justify-content: space-between; flex-direction: row; gap: 0.55rem; }
+    nav { flex: 1; justify-content: space-between; gap: 0.45rem; }
+    nav a { font-size: 0.74rem; }
     h1 { font-size: clamp(2.75rem, 15vw, 4.5rem); }
     .hero { padding-top: 4.5rem; }
     .actions, .button { width: 100%; }
+    .evidence-strip { grid-template-columns: 1fr; }
+    .evidence-item + .evidence-item, .evidence-item:nth-child(3), .evidence-item:nth-child(4) { border-left: 0; border-top: 1px solid var(--line); }
+    .case-head, .case-footer, .archive-head { align-items: flex-start; flex-direction: column; }
     .project:first-child { padding: 1.15rem; }
     .contact-links, .contact-links a { width: 100%; }
     .contact-links a { display: flex; align-items: center; justify-content: center; }
@@ -510,7 +630,7 @@
       <nav aria-label="Primary navigation">
         <a href="#about"><span class="lang-zh">能力</span><span class="lang-en">Strengths</span></a>
         <a href="#projects"><span class="lang-zh">项目</span><span class="lang-en">Projects</span></a>
-        <a href="#updates"><span class="lang-zh">动态</span><span class="lang-en">Updates</span></a>
+        <a href="#method"><span class="lang-zh">方法</span><span class="lang-en">Method</span></a>
         <a href="#contact"><span class="lang-zh">联系</span><span class="lang-en">Contact</span></a>
       </nav>
       <button id="langToggle" type="button" aria-label="Switch to English">EN</button>
@@ -520,24 +640,25 @@
   <main id="main">
     <section class="hero shell" id="top">
       <div>
-        <p class="eyebrow"><span class="lang-zh">AI 应用 · 智能体协作 · Web 落地</span><span class="lang-en">AI APPLICATIONS · AGENT WORKFLOWS · WEB DELIVERY</span></p>
+        <p class="eyebrow"><span class="lang-zh">AI 应用 · 智能体协作 · 自动化</span><span class="lang-en">APPLIED AI · AGENT WORKFLOWS · AUTOMATION</span></p>
         <h1>
-          <span class="lang-zh">把 AI 工具，变成<em>能解决问题</em>的项目。</span>
-          <span class="lang-en">Turning AI tools into projects that <em>solve real problems.</em></span>
+          <span class="lang-zh">把 AI 接入真实工作流，做成<em>可以运行</em>的自动化项目。</span>
+          <span class="lang-en">Connecting AI to real workflows—and turning it into <em>working automation.</em></span>
         </h1>
         <p class="hero-lead">
-          <span class="lang-zh">我专注于 AI 应用、智能体协作与轻量 Web 落地。从真实需求出发，梳理流程、验证方案，并把结果做成可运行、可说明、可复用的成果。</span>
-          <span class="lang-en">I focus on applied AI, multi-agent workflows, and lightweight web delivery—starting from real needs, testing practical approaches, and turning them into runnable, explainable, reusable outcomes.</span>
+          <span class="lang-zh">聚焦 AI 应用、智能体协作与自动化实践，同时具备轻量 Web 开发和部署能力。正在寻找 AI 应用 / 自动化相关实习机会。</span>
+          <span class="lang-en">Focused on applied AI, agent collaboration, and automation, with hands-on lightweight web delivery and deployment experience. Currently seeking an internship in applied AI or automation.</span>
         </p>
         <ul class="skill-list" aria-label="Core skills">
           <li>AI Agent Workflows</li>
-          <li>Web Delivery</li>
-          <li>Research &amp; Documentation</li>
-          <li>Rapid Learning</li>
+          <li>Python Automation</li>
+          <li>ADB / Browser Workflows</li>
+          <li>Lightweight Web Delivery</li>
         </ul>
         <div class="actions">
-          <a class="button primary" href="#projects"><span class="lang-zh">查看项目</span><span class="lang-en">View projects</span></a>
-          <a class="button secondary" href="#contact"><span class="lang-zh">联系合作</span><span class="lang-en">Get in touch</span></a>
+          <a class="button primary" href="#projects"><span class="lang-zh">查看代表项目</span><span class="lang-en">View featured work</span></a>
+          <a class="button secondary" href="https://github.com/junjiemi23-ship-it/zhugong-portfolio" target="_blank" rel="noreferrer"><span class="lang-zh">查看 GitHub</span><span class="lang-en">View GitHub</span> ↗</a>
+          <a class="button secondary" href="mailto:junjiemi23@gmail.com"><span class="lang-zh">邮件联系</span><span class="lang-en">Email me</span></a>
         </div>
       </div>
 
@@ -545,19 +666,38 @@
         <dl>
           <div>
             <dt><span class="lang-zh">求职方向</span><span class="lang-en">FOCUS</span></dt>
-            <dd><span class="lang-zh">AI 应用与智能体实践</span><span class="lang-en">Applied AI &amp; Agent Workflows</span></dd>
+            <dd><span class="lang-zh">AI 应用、智能体与自动化</span><span class="lang-en">Applied AI, Agents &amp; Automation</span></dd>
           </div>
           <div>
             <dt><span class="lang-zh">工作方式</span><span class="lang-en">METHOD</span></dt>
-            <dd><span class="lang-zh">问题 → 流程 → 可交付成果</span><span class="lang-en">Problem → Workflow → Deliverable</span></dd>
+            <dd><span class="lang-zh">问题 → 人机协作 → 验证交付</span><span class="lang-en">Problem → Human-AI workflow → Proof</span></dd>
           </div>
           <div>
             <dt><span class="lang-zh">当前状态</span><span class="lang-en">STATUS</span></dt>
-            <dd><span class="lang-zh">持续积累真实项目经验</span><span class="lang-en">Building real project experience</span></dd>
+            <dd><span class="lang-zh">寻找 AI 应用 / 自动化实习</span><span class="lang-en">Open to applied AI / automation internships</span></dd>
           </div>
         </dl>
       </aside>
     </section>
+
+    <aside class="evidence-strip shell" aria-label="Verified evidence">
+      <div class="evidence-item">
+        <span class="evidence-label">Featured / 01</span>
+        <span class="evidence-value"><span class="lang-zh">Python 零依赖监控，三类离线场景已验证</span><span class="lang-en">Zero-dependency Python monitor with three verified offline scenarios</span></span>
+      </div>
+      <div class="evidence-item">
+        <span class="evidence-label">Featured / 02</span>
+        <span class="evidence-value"><span class="lang-zh">ADB / scrcpy 手机操控链路已实测</span><span class="lang-en">ADB / scrcpy device-control workflow tested end to end</span></span>
+      </div>
+      <div class="evidence-item">
+        <span class="evidence-label">Featured / 03</span>
+        <span class="evidence-value"><span class="lang-zh">浏览器接入与排错沉淀 4 篇公开文档</span><span class="lang-en">Four public guides on browser access and troubleshooting</span></span>
+      </div>
+      <div class="evidence-item">
+        <span class="evidence-label">Delivery</span>
+        <span class="evidence-value"><span class="lang-zh">本站采用纯 HTML / CSS / JS，双站部署可访问</span><span class="lang-en">This static HTML / CSS / JS site is available through two deployments</span></span>
+      </div>
+    </aside>
 
     <section class="section-grid shell" id="about">
       <div class="section-heading">
@@ -592,70 +732,74 @@
     <section class="section-grid shell" id="projects">
       <div class="section-heading">
         <p class="section-kicker">Selected work</p>
-        <h2><span class="lang-zh">项目与实践</span><span class="lang-en">Projects &amp; practice</span></h2>
+        <h2><span class="lang-zh">三个代表项目，三条真实证据链。</span><span class="lang-en">Three featured projects. Three traceable proof chains.</span></h2>
       </div>
-      <div class="project-stack">
-        <a class="project" href="https://github.com/junjiemi23-ship-it/zhugong-portfolio/tree/main/web-access" target="_blank" rel="noreferrer">
-          <span class="project-name">web-access</span>
-          <span class="project-copy"><strong><span class="lang-zh">让 AI 使用日常浏览器环境完成真实网络任务</span><span class="lang-en">Giving AI access to a real browser workflow</span></strong><span><span class="lang-zh">整理 Chrome 登录态接入、网络分流与实战记录，体现工具配置、问题排查和文档沉淀能力。</span><span class="lang-en">Field notes on authenticated Chrome access, network routing, troubleshooting, and reusable documentation.</span></span></span>
-          <span class="project-role"><b><span class="lang-zh">我的角色：</span><span class="lang-en">My role: </span></b><span class="lang-zh">主导方案与排错，组织多智能体协作完成 Chrome 接入与规则分流，沉淀 3 篇实战文档</span><span class="lang-en">led planning and debugging of a multi-agent workflow for Chrome access and routing; shipped 3 field guides</span></span>
-          <span class="project-tags"><b><span class="lang-zh">技术：</span><span class="lang-en">Stack: </span></b><span class="lang-zh">Chrome CDP · Clash 规则分流 · 文档沉淀</span><span class="lang-en">Chrome CDP · Clash routing · documentation</span></span>
-          <span class="status done"><span class="lang-zh">已实践</span><span class="lang-en">Practiced</span><span class="project-arrow">↗</span></span>
-        </a>
+      <div>
+        <div class="featured-stack">
+          <article class="case-study" data-index="01">
+            <div class="case-head">
+              <span class="case-name">codex-quota-monitor</span>
+              <span class="status done"><span class="lang-zh">已实践 · 代码公开</span><span class="lang-en">Practiced · Public code</span></span>
+            </div>
+            <h3><span class="lang-zh">让零散的 AI 状态信号，变成安静可靠的通知。</span><span class="lang-en">Turning scattered AI status signals into quiet, reliable alerts.</span></h3>
+            <p class="case-summary"><span class="lang-zh">AI 工具没有主动提醒入口，人工盯状态页既耗时又容易漏。项目用零第三方依赖的单文件 Python 脚本定时巡检，只在状态真正翻转时发送邮件。</span><span class="lang-en">When an AI tool offers no proactive alert, manually watching status pages is noisy and unreliable. This single-file, standard-library Python monitor scans on schedule and emails only on a real state flip.</span></p>
+            <dl class="case-facts">
+              <div><dt><span class="lang-zh">我的角色</span><span class="lang-en">My role</span></dt><dd><span class="lang-zh">定义提醒边界与验收场景，推动状态机、翻转判重和防抖方案落地，并完成真实邮件链路验收。</span><span class="lang-en">Defined alert boundaries and acceptance scenarios, drove the state-machine, flip-dedup, and debounce design, and accepted the real email path.</span></dd></div>
+              <div><dt><span class="lang-zh">验证结果</span><span class="lang-en">Verified result</span></dt><dd><span class="lang-zh">三类离线场景通过：状态不变静默、状态翻转只推一次、防抖期抑制；公开脚本含自测入口。</span><span class="lang-en">Three offline scenarios pass: unchanged state stays silent, a flip alerts once, and debounce suppresses noise; self-tests are public.</span></dd></div>
+            </dl>
+            <ol class="case-flow" aria-label="Workflow"><li><span class="lang-zh">多源信号</span><span class="lang-en">Signals</span></li><li><span class="lang-zh">状态判定</span><span class="lang-en">State</span></li><li><span class="lang-zh">翻转判重</span><span class="lang-en">Dedup</span></li><li><span class="lang-zh">SMTP 通知</span><span class="lang-en">SMTP alert</span></li><li><span class="lang-zh">事件落盘</span><span class="lang-en">Event log</span></li></ol>
+            <div class="case-footer"><span class="case-tags">Python stdlib · SMTP · cron · state machine</span><a class="text-link" href="https://github.com/junjiemi23-ship-it/zhugong-portfolio/tree/main/codex-quota-monitor" target="_blank" rel="noreferrer"><span class="lang-zh">查看代码与验证记录</span><span class="lang-en">Code &amp; verification</span> ↗</a></div>
+          </article>
 
-        <a class="project" href="https://github.com/junjiemi23-ship-it/zhugong-portfolio/tree/main/docs" target="_blank" rel="noreferrer">
-          <span class="project-name">docs</span>
-          <span class="project-copy"><strong><span class="lang-zh">建立多智能体协作规则与审阅机制</span><span class="lang-en">Structuring collaboration across multiple AI agents</span></strong><span><span class="lang-zh">记录角色边界、任务交接、风险红线与发布流程，让协作过程可追踪、可复核。</span><span class="lang-en">Documents role boundaries, handoffs, safety rules, and release gates for traceable collaboration.</span></span></span>
-          <span class="project-role"><b><span class="lang-zh">我的角色：</span><span class="lang-en">My role: </span></b><span class="lang-zh">设计并落地协作治理：角色边界、审阅门、风险红线与发布流程（共管协议 v1.2）</span><span class="lang-en">designed collaboration governance: role boundaries, review gates, safety rules, and release flow (v1.2)</span></span>
-          <span class="project-tags"><b><span class="lang-zh">技术：</span><span class="lang-en">Stack: </span></b><span class="lang-zh">多智能体治理 · Markdown 文档 · 审阅门</span><span class="lang-en">Multi-agent governance · Markdown · review gates</span></span>
-          <span class="status done"><span class="lang-zh">已建立</span><span class="lang-en">Built</span><span class="project-arrow">↗</span></span>
-        </a>
+          <article class="case-study" data-index="02">
+            <div class="case-head">
+              <span class="case-name">phone-automation</span>
+              <span class="status done"><span class="lang-zh">已实践 · 脱敏公开</span><span class="lang-en">Practiced · Sanitized</span></span>
+            </div>
+            <h3><span class="lang-zh">当界面结构读不到，让人类标注与像素差异协同定位。</span><span class="lang-en">When UI structure is unavailable, combine human marking with pixel-difference localization.</span></h3>
+            <p class="case-summary"><span class="lang-zh">WebView、自绘 UI 和深色模式会让元素树或颜色检测失效。本项目实测 ADB / scrcpy 操控链路，并沉淀“用户标注目标、程序计算差异坐标”的人机协作方法。</span><span class="lang-en">WebViews, custom-drawn UI, and dark mode can defeat element trees and color detection. This project tests the ADB / scrcpy control chain and documents a human-in-the-loop method: mark the target, then compute its coordinates from pixel differences.</span></p>
+            <dl class="case-facts">
+              <div><dt><span class="lang-zh">我的角色</span><span class="lang-en">My role</span></dt><dd><span class="lang-zh">提供目标标注并验证点击结果，选择人机协作识图路线，划定低风险辅助与人工确认边界。</span><span class="lang-en">Marked targets and verified tap results, selected the human-in-the-loop vision approach, and set boundaries between low-risk assistance and human confirmation.</span></dd></div>
+              <div><dt><span class="lang-zh">验证结果</span><span class="lang-en">Verified result</span></dt><dd><span class="lang-zh">无线 / USB 连接、截图与设备信息、设备端定时触发、多帧状态监控均实测；公开内容仅含方法论、伪代码和脱敏示意图。</span><span class="lang-en">Wireless / USB connection, screenshots and device info, device-side timed taps, and multi-frame monitoring were tested; public material is limited to method, pseudocode, and sanitized images.</span></dd></div>
+            </dl>
+            <ol class="case-flow" aria-label="Workflow"><li><span class="lang-zh">ADB 截图</span><span class="lang-en">ADB capture</span></li><li><span class="lang-zh">人工标注</span><span class="lang-en">Human mark</span></li><li><span class="lang-zh">像素差异</span><span class="lang-en">Pixel diff</span></li><li><span class="lang-zh">坐标点击</span><span class="lang-en">Coordinate tap</span></li><li><span class="lang-zh">状态复核</span><span class="lang-en">State check</span></li></ol>
+            <div class="case-footer"><span class="case-tags">ADB · scrcpy · OpenCV method · human-in-the-loop</span><a class="text-link" href="https://github.com/junjiemi23-ship-it/zhugong-portfolio/tree/main/phone-automation" target="_blank" rel="noreferrer"><span class="lang-zh">查看方法与脱敏证据</span><span class="lang-en">Method &amp; sanitized proof</span> ↗</a></div>
+          </article>
 
-        <a class="project" href="https://github.com/junjiemi23-ship-it/zhugong-portfolio/tree/main/overseas-deploy" target="_blank" rel="noreferrer">
-          <span class="project-name">overseas-deploy</span>
-          <span class="project-copy"><strong><span class="lang-zh">国内账号免备案海外直连部署法 + 招聘官可见性研究</span><span class="lang-en">No-ICP overseas deployment method + recruiter visibility</span></strong><span><span class="lang-zh">整理国内账号区域锁→Cloudflare Pages 直连的决策树、选型对比与 SEO 迁移清单，并研究作品集如何被招聘官看到。</span><span class="lang-en">A decision tree, selection comparison, and SEO migration checklist from region-locked EdgeOne to Cloudflare Pages, plus how to make a portfolio visible to recruiters.</span></span></span>
-          <span class="project-role"><b><span class="lang-zh">我的角色：</span><span class="lang-en">My role: </span></b><span class="lang-zh">主导部署选型与迁移：EdgeOne 区域锁 → Cloudflare Pages 直连，含 SEO 迁移与招聘官可见性研究，本站即产物</span><span class="lang-en">led deployment selection and migration: region-locked EdgeOne → Cloudflare Pages, incl. SEO migration and recruiter-visibility research; this site is the artifact</span></span>
-          <span class="project-tags"><b><span class="lang-zh">技术：</span><span class="lang-en">Stack: </span></b><span class="lang-zh">Cloudflare Pages · DNS/SEO · 决策树</span><span class="lang-en">Cloudflare Pages · DNS/SEO · decision tree</span></span>
-          <span class="status done"><span class="lang-zh">已实践</span><span class="lang-en">Practiced</span><span class="project-arrow">↗</span></span>
-        </a>
+          <article class="case-study" data-index="03">
+            <div class="case-head">
+              <span class="case-name">web-access</span>
+              <span class="status done"><span class="lang-zh">已实践 · 4 篇文档</span><span class="lang-en">Practiced · 4 guides</span></span>
+            </div>
+            <h3><span class="lang-zh">把浏览器接入、代理分流与故障排查整理成可复用通道。</span><span class="lang-en">Turning browser access, proxy routing, and troubleshooting into a reusable channel.</span></h3>
+            <p class="case-summary"><span class="lang-zh">AI 助手需要在真实浏览器环境查资料时，会同时遇到登录态、Chrome 通道与网络分流问题。项目将完整排错链整理为从入口发现到上线复盘的公开文档。</span><span class="lang-en">Research in a real browser can fail across authentication state, the Chrome channel, and network routing. This project documents the full diagnosis chain—from finding the entry point to deployment review.</span></p>
+            <dl class="case-facts">
+              <div><dt><span class="lang-zh">我的角色</span><span class="lang-en">My role</span></dt><dd><span class="lang-zh">定义访问目标与验收方式，组织多智能体排错和交接，复核通道效果并推动经验公开化。</span><span class="lang-en">Defined the access goal and acceptance checks, coordinated multi-agent debugging and handoffs, verified the channel, and drove public documentation.</span></dd></div>
+              <div><dt><span class="lang-zh">验证结果</span><span class="lang-en">Verified result</span></dt><dd><span class="lang-zh">仓库公开 4 篇文档，覆盖工具入口、Chrome 接入、Clash 分流和海外页面上线复盘。</span><span class="lang-en">Four public guides cover tool discovery, Chrome access, Clash routing, and an overseas deployment review.</span></dd></div>
+            </dl>
+            <ol class="case-flow" aria-label="Workflow"><li><span class="lang-zh">发现入口</span><span class="lang-en">Discover</span></li><li><span class="lang-zh">接入登录态</span><span class="lang-en">Session access</span></li><li><span class="lang-zh">规则分流</span><span class="lang-en">Routing</span></li><li><span class="lang-zh">故障定位</span><span class="lang-en">Diagnose</span></li><li><span class="lang-zh">文档复用</span><span class="lang-en">Document</span></li></ol>
+            <div class="case-footer"><span class="case-tags">Chrome CDP · Clash routing · troubleshooting · docs</span><a class="text-link" href="https://github.com/junjiemi23-ship-it/zhugong-portfolio/tree/main/web-access" target="_blank" rel="noreferrer"><span class="lang-zh">查看四篇实战文档</span><span class="lang-en">Read the four guides</span> ↗</a></div>
+          </article>
+        </div>
 
-        <a class="project" href="https://github.com/junjiemi23-ship-it/zhugong-portfolio/tree/main/codex-quota-monitor" target="_blank" rel="noreferrer">
-          <span class="project-name">codex-quota-monitor</span>
-          <span class="project-copy"><strong><span class="lang-zh">AI 工具额度/状态刷新信号的云端巡检与邮箱推送监控</span><span class="lang-en">A zero-dependency monitor for AI quota/status refresh signals</span></strong><span><span class="lang-zh">状态机 + 翻转判重 + 24h 防抖 + 多源故障转移，零第三方依赖单文件，云端定时巡检</span><span class="lang-en">state machine, flip dedup, 24h debounce, multi-source failover, SMTP alerts, scheduled cloud scanning</span></span></span>
-          <span class="project-role"><b><span class="lang-zh">我的角色：</span><span class="lang-en">My role: </span></b><span class="lang-zh">设计状态机与翻转判重，完成 SMTP 邮箱推送与云端定时部署验证</span><span class="lang-en">designed the state machine and flip dedup; shipped SMTP alerts with scheduled cloud deployment and verification</span></span>
-          <span class="project-tags"><b><span class="lang-zh">技术：</span><span class="lang-en">Stack: </span></b><span class="lang-zh">Python 零依赖单文件 · SMTP 邮箱推送 · cron 定时巡检 · 状态机/翻转判重</span><span class="lang-en">Python (stdlib only) · SMTP alerts · cron scanning · state machine / flip dedup</span></span>
-          <span class="status done"><span class="lang-zh">已实践</span><span class="lang-en">Practiced</span><span class="project-arrow">↗</span></span>
-        </a>
+        <div class="archive-block">
+          <div class="archive-head"><h3><span class="lang-zh">Practiced / 其他已实践</span><span class="lang-en">Practiced / supporting work</span></h3><p><span class="lang-zh">部署、调研与协作治理证据</span><span class="lang-en">Delivery, research, and collaboration evidence</span></p></div>
+          <div class="project-stack compact">
+            <a class="project" href="https://github.com/junjiemi23-ship-it/zhugong-portfolio/tree/main/overseas-deploy" target="_blank" rel="noreferrer"><span class="project-name">overseas-deploy</span><span class="project-copy"><strong><span class="lang-zh">轻量 Web 交付与双站部署</span><span class="lang-en">Lightweight web delivery and dual deployment</span></strong><span><span class="lang-zh">部署选型、Cloudflare Pages / GitHub Pages、SEO 迁移与故障复盘。</span><span class="lang-en">Deployment choices, Cloudflare / GitHub Pages, SEO migration, and troubleshooting.</span></span></span><span class="status done"><span class="lang-zh">已实践</span><span class="lang-en">Practiced</span><span class="project-arrow">↗</span></span></a>
+            <a class="project" href="https://github.com/junjiemi23-ship-it/zhugong-portfolio/tree/main/web-research" target="_blank" rel="noreferrer"><span class="project-name">web-research</span><span class="project-copy"><strong><span class="lang-zh">公开资源检索与验证</span><span class="lang-en">Open-web research and verification</span></strong><span><span class="lang-zh">首个项目已记录免费云资源甄别、领取与到期防扣费决策链。</span><span class="lang-en">The first case documents evaluating a free cloud resource, claiming it, and preventing renewal charges.</span></span></span><span class="status done"><span class="lang-zh">已实践</span><span class="lang-en">Practiced</span><span class="project-arrow">↗</span></span></a>
+            <a class="project" href="https://github.com/junjiemi23-ship-it/zhugong-portfolio/tree/main/docs" target="_blank" rel="noreferrer"><span class="project-name">docs</span><span class="project-copy"><strong><span class="lang-zh">多智能体协作治理</span><span class="lang-en">Multi-agent collaboration governance</span></strong><span><span class="lang-zh">角色边界、交接文件、审阅门与公开内容红线均有文档可查。</span><span class="lang-en">Role boundaries, handoffs, review gates, and public-content safeguards are documented.</span></span></span><span class="status done"><span class="lang-zh">已建立</span><span class="lang-en">Built</span><span class="project-arrow">↗</span></span></a>
+          </div>
+        </div>
 
-        <a class="project" href="https://github.com/junjiemi23-ship-it/zhugong-portfolio/tree/main/ai-chat" target="_blank" rel="noreferrer">
-          <span class="project-name">ai-chat</span>
-          <span class="project-copy"><strong><span class="lang-zh">比较不同 AI 助手的接入与对话体验</span><span class="lang-en">Comparing AI assistant integrations and chat experiences</span></strong><span><span class="lang-zh">计划围绕接入方式、使用体验和适用场景，形成可复现的对比记录。</span><span class="lang-en">Planned comparisons of integration methods, user experience, and practical use cases.</span></span></span>
-          <span class="status plan"><span class="lang-zh">规划中</span><span class="lang-en">Planned</span><span class="project-arrow">↗</span></span>
-        </a>
-
-        <a class="project" href="https://github.com/junjiemi23-ship-it/zhugong-portfolio/tree/main/web-research" target="_blank" rel="noreferrer">
-          <span class="project-name">web-research</span>
-          <span class="project-copy"><strong><span class="lang-zh">把公开网络资源整理成可用的信息资产</span><span class="lang-en">Turning open web resources into useful information assets</span></strong><span><span class="lang-zh">计划沉淀检索、验证、聚合与分类流程，提升网络调研的可靠性和复用性。</span><span class="lang-en">Planned workflows for retrieval, validation, aggregation, and categorization.</span></span></span>
-          <span class="status plan"><span class="lang-zh">规划中</span><span class="lang-en">Planned</span><span class="project-arrow">↗</span></span>
-        </a>
-
-        <a class="project" href="https://github.com/junjiemi23-ship-it/zhugong-portfolio/tree/main/surveys" target="_blank" rel="noreferrer">
-          <span class="project-name">surveys</span>
-          <span class="project-copy"><strong><span class="lang-zh">从问卷设计走向结构化数据</span><span class="lang-en">From survey design to structured data</span></strong><span><span class="lang-zh">计划覆盖问题设计、数据采集、清洗和基础分析，形成完整的小型调研流程。</span><span class="lang-en">A planned workflow for questionnaire design, collection, cleaning, and basic analysis.</span></span></span>
-          <span class="status plan"><span class="lang-zh">规划中</span><span class="lang-en">Planned</span><span class="project-arrow">↗</span></span>
-        </a>
-
-        <a class="project" href="https://github.com/junjiemi23-ship-it/zhugong-portfolio/tree/main/chat-companion" target="_blank" rel="noreferrer">
-          <span class="project-name">chat-companion</span>
-          <span class="project-copy"><strong><span class="lang-zh">探索基于脱敏数据的角色化对话</span><span class="lang-en">Exploring role-based dialogue with sanitized data</span></strong><span><span class="lang-zh">计划研究角色设定、边界控制和对话一致性，只使用可公开的脱敏示例。</span><span class="lang-en">Planned work on persona design, boundaries, and consistency using sanitized examples only.</span></span></span>
-          <span class="status plan"><span class="lang-zh">规划中</span><span class="lang-en">Planned</span><span class="project-arrow">↗</span></span>
-        </a>
-
-        <a class="project" href="https://github.com/junjiemi23-ship-it/zhugong-portfolio/tree/main/holiday-pages" target="_blank" rel="noreferrer">
-          <span class="project-name">holiday-pages</span>
-          <span class="project-copy"><strong><span class="lang-zh">节日主题页面与轻量互动创意</span><span class="lang-en">Holiday-themed pages and lightweight interactions</span></strong><span><span class="lang-zh">候选方向包括主题页、贺卡、倒计时和小型互动体验，具体形式待确定。</span><span class="lang-en">Potential directions include themed pages, cards, countdowns, and small interactive experiences.</span></span></span>
-          <span class="status plan"><span class="lang-zh">待定</span><span class="lang-en">TBD</span><span class="project-arrow">↗</span></span>
-        </a>
+        <div class="archive-block">
+          <div class="archive-head"><h3><span class="lang-zh">Labs / 实验与规划</span><span class="lang-en">Labs / experiments &amp; plans</span></h3><p><span class="lang-zh">未完成，不作为当前成果</span><span class="lang-en">Not presented as completed work</span></p></div>
+          <div class="project-stack compact labs">
+            <a class="project" href="https://github.com/junjiemi23-ship-it/zhugong-portfolio/tree/main/ai-chat" target="_blank" rel="noreferrer"><span class="project-name">ai-chat</span><span class="project-copy"><strong><span class="lang-zh">AI 助手接入与体验比较</span><span class="lang-en">AI assistant integration comparisons</span></strong></span><span class="status plan"><span class="lang-zh">规划</span><span class="lang-en">Planned</span><span class="project-arrow">↗</span></span></a>
+            <a class="project" href="https://github.com/junjiemi23-ship-it/zhugong-portfolio/tree/main/surveys" target="_blank" rel="noreferrer"><span class="project-name">surveys</span><span class="project-copy"><strong><span class="lang-zh">问卷与结构化数据流程</span><span class="lang-en">Surveys and structured data</span></strong></span><span class="status plan"><span class="lang-zh">规划</span><span class="lang-en">Planned</span><span class="project-arrow">↗</span></span></a>
+            <a class="project" href="https://github.com/junjiemi23-ship-it/zhugong-portfolio/tree/main/chat-companion" target="_blank" rel="noreferrer"><span class="project-name">chat-companion</span><span class="project-copy"><strong><span class="lang-zh">脱敏数据的角色化对话</span><span class="lang-en">Role-based dialogue with sanitized data</span></strong></span><span class="status plan"><span class="lang-zh">实验</span><span class="lang-en">Experiment</span><span class="project-arrow">↗</span></span></a>
+            <a class="project" href="https://github.com/junjiemi23-ship-it/zhugong-portfolio/tree/main/holiday-pages" target="_blank" rel="noreferrer"><span class="project-name">holiday-pages</span><span class="project-copy"><strong><span class="lang-zh">节日页面方向待重新定义</span><span class="lang-en">Holiday-page direction awaiting redefinition</span></strong></span><span class="status plan"><span class="lang-zh">待定</span><span class="lang-en">TBD</span><span class="project-arrow">↗</span></span></a>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -668,15 +812,15 @@
         <div class="process">
           <article>
             <h3><span class="lang-zh">拆解需求</span><span class="lang-en">Clarify</span></h3>
-            <p><span class="lang-zh">确认目标、受众、约束和验收标准，避免一开始就被工具带着走。</span><span class="lang-en">Define the goal, audience, constraints, and success criteria before choosing tools.</span></p>
+            <p><span class="lang-zh">先写清问题、公开边界和验收标准；指标无法核实时，改用可复查的定性结论。</span><span class="lang-en">Define the problem, public boundaries, and acceptance criteria; replace unverifiable metrics with reviewable qualitative claims.</span></p>
           </article>
           <article>
             <h3><span class="lang-zh">组织协作</span><span class="lang-en">Orchestrate</span></h3>
-            <p><span class="lang-zh">为 AI 智能体划分角色、建立审阅门，并保留清晰的任务交接记录。</span><span class="lang-en">Assign roles to AI agents, add review gates, and keep handoffs traceable.</span></p>
+            <p><span class="lang-zh">用写入声明、角色分工、交接文件和人工审阅门，避免多个智能体互相覆盖。</span><span class="lang-en">Use write declarations, role boundaries, handoff files, and human review gates to prevent agents from overwriting one another.</span></p>
           </article>
           <article>
             <h3><span class="lang-zh">交付与复盘</span><span class="lang-en">Deliver</span></h3>
-            <p><span class="lang-zh">产出可查看的结果，验证链接与内容，再把有效方法沉淀为可复用流程。</span><span class="lang-en">Ship a reviewable result, verify it, and capture the method as a reusable workflow.</span></p>
+            <p><span class="lang-zh">交付后复查内容、链接、隐私和部署状态，把故障原因与最终取舍沉淀为文档。</span><span class="lang-en">After delivery, verify content, links, privacy, and deployment state, then document failures and final trade-offs.</span></p>
           </article>
         </div>
         <p class="personal-note">
@@ -688,30 +832,30 @@
 
     <section class="section-grid shell" id="updates">
       <div class="section-heading">
-        <p class="section-kicker">Recent updates</p>
-        <h2><span class="lang-zh">最近在做什么</span><span class="lang-en">What I've been building</span></h2>
+        <p class="section-kicker">Learning archive</p>
+        <h2><span class="lang-zh">持续把实践变成可复查的档案。</span><span class="lang-en">Turning ongoing practice into a reviewable archive.</span></h2>
       </div>
       <div>
         <ul class="update-list">
           <li class="update-item">
             <span class="update-date">2026-08</span>
             <div>
-              <h3><span class="lang-zh">海外免备案部署落地</span><span class="lang-en">No-ICP overseas deployment shipped</span></h3>
-              <p><span class="lang-zh">完成从区域锁部署到 Cloudflare Pages 直连的迁移，整理出选型对比与 SEO 迁移清单，本站即该方法的产物。</span><span class="lang-en">Migrated from a region-locked setup to Cloudflare Pages with a selection comparison and SEO migration checklist—this site is the artifact.</span></p>
+              <h3><span class="lang-zh">状态监控从需求走到真实通知</span><span class="lang-en">Status monitor progressed from need to real alert</span></h3>
+              <p><span class="lang-zh">完成零依赖脚本、三类离线验证、真实邮件链路和云端定时巡检；公开副本保留自测入口与配置模板。</span><span class="lang-en">Completed a dependency-free script, three offline checks, a real email path, and scheduled cloud scanning; the public copy keeps self-tests and a safe config template.</span></p>
             </div>
           </li>
           <li class="update-item">
             <span class="update-date">2026-08</span>
             <div>
-              <h3><span class="lang-zh">浏览器自动化实战文档沉淀</span><span class="lang-en">Browser-automation field guides</span></h3>
-              <p><span class="lang-zh">围绕日常浏览器登录态接入、网络分流与问题排查，产出 3 篇可复用的实战记录与指南。</span><span class="lang-en">Three reusable field guides on authenticated browser access, network routing, and troubleshooting.</span></p>
+              <h3><span class="lang-zh">手机操控与人机协作识图</span><span class="lang-en">Device control and human-in-the-loop vision</span></h3>
+              <p><span class="lang-zh">实测 ADB / scrcpy 能力链路，公开“标注目标 → 像素差异 → 坐标验证”方法与脱敏示意图。</span><span class="lang-en">Tested the ADB / scrcpy workflow and published the “mark → pixel diff → coordinate verification” method with sanitized images.</span></p>
             </div>
           </li>
           <li class="update-item">
             <span class="update-date">2026-08</span>
             <div>
-              <h3><span class="lang-zh">多智能体协作治理落地</span><span class="lang-en">Multi-agent collaboration governance</span></h3>
-              <p><span class="lang-zh">建立角色边界、审阅门与协作规范的文档体系，让多个智能体的协作过程可追踪、可复核。</span><span class="lang-en">A documented system of role boundaries, review gates, and collaboration rules for traceable multi-agent work.</span></p>
+              <h3><span class="lang-zh">浏览器接入与排错文档链</span><span class="lang-en">Browser access and troubleshooting guide chain</span></h3>
+              <p><span class="lang-zh">围绕工具入口、Chrome 登录态接入、网络分流和页面上线复盘，形成 4 篇可复用公开文档。</span><span class="lang-en">Four reusable public guides now cover tool discovery, authenticated Chrome access, network routing, and deployment review.</span></p>
             </div>
           </li>
           <li class="update-item">
@@ -728,8 +872,8 @@
 
     <section class="contact-block shell" id="contact">
       <p class="section-kicker">Open to opportunities</p>
-      <h2><span class="lang-zh">如果你在寻找一位愿意学习、能把 AI 用到实际问题中的新人，我们可以聊聊。</span><span class="lang-en">Looking for an early-career builder who applies AI to real problems? Let's talk.</span></h2>
-      <p><span class="lang-zh">欢迎交流 AI 应用、智能体协作、轻量 Web 项目与实践机会。</span><span class="lang-en">Open to conversations about applied AI, agent workflows, lightweight web projects, and practical opportunities.</span></p>
+      <h2><span class="lang-zh">正在寻找 AI 应用、智能体自动化方向实习。</span><span class="lang-en">Seeking an internship in applied AI and agent automation.</span></h2>
+      <p><span class="lang-zh">也愿意承担轻量 Web 开发与部署工作。欢迎通过邮件交流具体岗位、项目或合作机会。</span><span class="lang-en">Also open to lightweight web development and deployment work. Email me about a specific role, project, or collaboration.</span></p>
       <div class="contact-links">
         <a href="mailto:junjiemi23@gmail.com"><span class="lang-zh">发送邮件</span><span class="lang-en">Send an email</span> ↗</a>
         <a href="https://github.com/junjiemi23-ship-it/zhugong-portfolio" target="_blank" rel="noreferrer"><span class="lang-zh">查看 GitHub</span><span class="lang-en">View GitHub</span> ↗</a>
