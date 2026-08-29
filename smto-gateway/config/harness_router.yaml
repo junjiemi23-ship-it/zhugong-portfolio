@@ -1,0 +1,45 @@
+# Harness Smart Router 配置
+# ⚠️ 2026-08-28 说明：当前版本以下参数由 router/resilience.py 与 route_candidates.py
+#    中的常量定义，支持环境变量覆盖（HARNESS_COOLDOWN_* / HARNESS_ROUTER_PORT 等）。
+#    本文件作为声明性参考；watchfiles 热更加载为待实现项。
+
+# 端口（环境变量 HARNESS_ROUTER_PORT 优先）
+port: 8124
+
+# 请求级切换策略（router/resilience.py::classify_status）
+# 401/403/404 → 冷却 provider 300s 后换腿（credential/配置问题短期不自愈）
+# 429         → 冷却 180s 起指数退避（180→360→720…封顶 30min），绝不立即重试
+#               （2026-08-29：30s 固定冷却导致"到期→再撞429"循环）
+# 5xx         → 同候选退避 0.8s 重试一次，仍失败冷却 15s 换 provider
+# timeout     → 冷却 20s 换腿
+# 其他 4xx    → 冷却 120s 换腿
+#               （2026-08-29 教训：b.ai 高峰期间歇 400，原 10s 冷却导致 26 分钟撞墙循环）
+cooldown_seconds:
+  rate_limited: 180
+  server: 15
+  timeout: 20
+  auth: 300
+  forbidden: 300
+  not_found: 300
+  client: 120
+  unknown: 10
+
+server_retry:
+  max_retries_same_candidate: 1   # 仅 5xx
+  backoff_seconds: 0.8
+
+# 上下文门控
+context_gate:
+  safety_margin: 1.2
+  min_chain_length: 1
+
+# 任务分类阈值（router/route_candidates.py）
+task_detection:
+  long_running_tool_rounds: 8
+  long_running_context_chars: 25000
+  chinese_ratio_threshold: 0.15
+
+# 日志
+logging:
+  level: INFO
+  format: "%(asctime)s [%(name)s] %(levelname)s: %(message)s"

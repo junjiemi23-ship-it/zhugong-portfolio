@@ -1,0 +1,17 @@
+[project]
+name = "harness-smart-router"
+version = "1.0.0"
+description = "Smart model router for browser-use harness"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.115",
+    "uvicorn>=0.32",
+    "httpx>=0.28",
+    "watchfiles>=1.0",
+    "python-dotenv>=1.0",
+]
+
+# 纯依赖项目（不构建/安装自身包），等价于 install_router.sh 模板并避免 setuptools flat-layout 构建问题
+[tool.uv]
+package = false

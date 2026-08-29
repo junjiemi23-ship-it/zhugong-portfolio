@@ -13,6 +13,7 @@
 | [codex-quota-monitor](codex-quota-monitor/) | AI 工具没有主动状态提醒，人工盯信号容易漏报或重复打扰 | 定义提醒边界与验收场景，推动状态机、翻转判重和防抖方案落地；公开零依赖 Python 脚本、配置模板和三类离线自测入口 | 已实践 |
 | [phone-automation](phone-automation/) | WebView、自绘 UI 或深色模式下，常规元素树和颜色检测无法可靠定位目标 | 提供标注并验证结果，选择“人工标注 + 像素差异”路线，划定低风险自动化边界；公开方法论、伪代码和脱敏示意图 | 已实践 |
 | [web-access](web-access/) | AI 在真实浏览器环境查资料时，会同时遇到登录态、Chrome 通道和代理分流问题 | 定义访问目标与验收方式，组织多智能体排错和交接，复核通道效果；公开 4 篇从入口发现到上线复盘的实战文档 | 已实践 |
+| [smto-gateway](smto-gateway/) | 三智能体各自配模型、免费额度易超限、换腿靠手、排障翻日志 | 设计任务感知路由 + 观测统计 + 红线保护；公开 66 项自测、中文统计、零配置三智能体共用 | 已实践 |
 
 三个案例均在首页直接展示“问题—角色—流程—验证”。项目目录继续承载完整代码、方法、限制和公开证据。
 
@@ -51,6 +52,7 @@ zhugong-portfolio/
 ├── codex-quota-monitor/   # Python 状态监控与通知
 ├── phone-automation/      # ADB / scrcpy 与人机协作识图
 ├── web-access/            # Chrome 接入、分流与排错文档
+├── smto-gateway/          # 三智能体共用模型路由网关
 ├── overseas-deploy/       # 轻量网页部署与可达性复盘
 ├── web-research/          # 公开资源检索与验证
 ├── docs/                  # 方法文档、文章与协作约定

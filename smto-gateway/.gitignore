@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# 运行时日志（含启动日志/访问日志，不发布）
+*.log
+*.err.log
+router.log
+router.err.log
+
+# 临时/本地脚本
+kill*.ps1
+tmp/
+temp/
+
+# 备份文件
+*.bak
+*.bak-*
+*.orig
+
+# 运行时 PID 文件
+.router.pid
+
+# 编辑器/OS
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

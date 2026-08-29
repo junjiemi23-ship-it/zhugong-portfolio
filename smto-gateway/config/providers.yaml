@@ -1,0 +1,42 @@
+# Provider 凭据与端点配置
+# 密钥从环境变量读取（绝不写入此文件）
+# 2026-08-28 对账：与 router/route_candidates.py 候选链模型 ID 保持一致
+
+providers:
+  bai:
+    base_url: "https://api.b.ai/v1"
+    key_env: "BAI_API_KEY"
+    models:
+      - "qwen3.8-flash"         # 实测 4.4s, 快且稳, fast/navigation 首选
+      - "deepseek-v4-flash"     # 实测 6.5s, 综合首选
+      - "glm-5.3-flash"         # 实测 45s 限流很慢, 已从主力链降为兜底候选
+      - "deepseek-v4-flash-vision-exp"  # 视觉链唯一
+      # - "deepseek-v4-pro"  # ⚠️ 付费 SKU 且不在 DSH B.AI 配置列表, 2026-08-28 已从所有路由链移除
+
+  nvidia:
+    base_url: "https://integrate.api.nvidia.com/v1"
+    key_env: "NVIDIA_API_KEY"
+    models:
+      - "minimaxai/minimax-m3"          # 实测 4.8s, 强推理且快, coding/强模型首选
+      - "deepseek-ai/deepseek-v4-flash-0731"  # 实测 17.3s, 可用但慢
+      # - "deepseek-ai/deepseek-v4-pro-0813"  # ⚠️ 实测超时不响应(EOL), 2026-08-28 已从所有路由链移除
+      # - "nvidia/nemotron-3-ultra-550b-a55b" # ⚠️ 实测上游 503, 2026-08-28 降权; 恢复后可加回
+
+  groq:
+    base_url: "https://api.groq.com/openai/v1"
+    key_env: "GROQ_API_KEY"
+    models:
+      - "gpt-oss-120b"   # ⚠️ 缺 GROQ_API_KEY, 当前不可用; 注入 key 后可加回
+
+  local:
+    base_url: "http://127.0.0.1:8080/v1"
+    key_env: null
+    models: []
+      # - "mimo-v2.5"    # ⚠️ 本地进程未运行, 2026-08-28 已从 vision 链移除; 进程恢复后可手动加回
+
+# 红线拦截白名单（仅这些付费 SKU 在显式授权时可放行）
+paid_sku_whitelist:
+  - "deepseek-v4-pro"
+  - "deepseek-r2"
+  - "glm-5.3"
+  - "kimi-k3"
