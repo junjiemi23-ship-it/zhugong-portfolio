@@ -12,7 +12,7 @@
 
 **怎么意识到这个问题**：日常使用中，「AI 助手不能访问网页/不能登录态复用/只能聊天不能执行」是高频吐槽；而 WorkBuddy 这类能执行任务的助手，入口和使用方式很多人并不清楚。
 
-**怎么解决**：① 发现入口：在 Chrome 搜索官方站点/应用商店找到 WorkBuddy（国内版/国际版）；② 上手：注册登录、新建任务、让它读文件/查资料/执行脚本；③ 接入网络：用「Chrome 登录态复用 + 分流」让它像真人一样上网（详见 `web-access/WorkBuddy-Chrome访问通道实战记录.md`）；④ 使用国外 AI 模型：通过国际版内置模型或自定义 API 接入（详见第五节）。
+**怎么解决**：① 发现入口：在 Chrome 搜索官方站点/应用商店找到 WorkBuddy（国内版/国际版）；② 上手：注册登录、新建任务、让它读文件/查资料/执行脚本；③ 接入网络：用「Chrome 登录态复用 + 分流」让它像真人一样上网（详见 `web-access/workbuddy-chrome-access-practice.md`）；④ 使用国外 AI 模型：通过国际版内置模型或自定义 API 接入（详见第五节）。
 
 **最终效果**：从「只会聊天」到「能联网查资料、能执行任务、能切换多模型」的完整上手路径。
 
@@ -78,7 +78,7 @@
 
 ## 四、让它像真人一样上网（登录态 + 分流）
 
-核心：默认的 AI 助手「看不到」你日常 Chrome 的登录态。解决办法见仓库 `web-access/WorkBuddy-Chrome访问通道实战记录.md`，要点：
+核心：默认的 AI 助手「看不到」你日常 Chrome 的登录态。解决办法见仓库 `web-access/workbuddy-chrome-access-practice.md`，要点：
 
 1. Chrome 官方开关 `chrome://inspect/#remote-debugging` 勾选「启用远程调试」，登录态自动复用；
 2. 用 Clash 规则分流：国内站直连、海外站走代理（选 TCP/vless 节点，避开 UDP 被干扰的坑）；
@@ -159,4 +159,4 @@ WorkBuddy **国际版**（`workbuddy.ai`）账号体系与国内版独立，客�
 *本文档由 Codex 整理草稿，Work2 按国际版经验完善（2026-08-19）*
 
 
-> 关联阅读：[《WorkBuddy-Chrome访问通道实战记录》](WorkBuddy-Chrome访问通道实战记录.md)（联网通道）· [《海外云平台作品集上线记》](海外云平台作品集上线记.md)（上线复盘）· [《大学生免费领云服务器实录》](../web-research/free-cloud-server/README.md)（上云实践）
+> 关联阅读：[《WorkBuddy-Chrome访问通道实战记录》](workbuddy-chrome-access-practice.md)（联网通道）· [《海外云平台作品集上线记》](overseas-pages-deployment.md)（上线复盘）· [《大学生免费领云服务器实录》](../web-research/free-cloud-server/README.md)（上云实践）

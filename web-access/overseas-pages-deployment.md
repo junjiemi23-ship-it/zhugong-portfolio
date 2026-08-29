@@ -39,7 +39,7 @@
 ### 坑 2：海外平台访问与注册风控
 
 - 现象：网络环境、登录态复用、验证码，每一步都可能卡住。
-- 解决：先打通「Chrome 登录态复用 + 分流」通道（详见仓库 `web-access/WorkBuddy-Chrome访问通道实战记录.md`）。
+- 解决：先打通「Chrome 登录态复用 + 分流」通道（详见仓库 `web-access/workbuddy-chrome-access-practice.md`）。
 
 ### 坑 3：部署方案三选一
 
@@ -152,4 +152,4 @@ curl -s -o NUL -w "%{http_code}\n" https://github.com/junjiemi23-ship-it/zhugong
 *本文档由 Codex 整理草稿，Work2 按国际版部署经验完善（2026-08-19）*
 
 
-> 关联阅读：[《如何在 Chrome 上发现和使用 WorkBuddy AI》](Chrome使用WorkBuddyAI实录.md)（入口发现）· [《WorkBuddy-Chrome访问通道实战记录》](WorkBuddy-Chrome访问通道实战记录.md)（联网通道）· [《大学生免费领云服务器实录》](../web-research/free-cloud-server/README.md)（上云实践）
+> 关联阅读：[《如何在 Chrome 上发现和使用 WorkBuddy AI》](chrome-workbuddy-ai-guide.md)（入口发现）· [《WorkBuddy-Chrome访问通道实战记录》](workbuddy-chrome-access-practice.md)（联网通道）· [《大学生免费领云服务器实录》](../web-research/free-cloud-server/README.md)（上云实践）
