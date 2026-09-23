@@ -1,0 +1,15 @@
+# secrets & credentials
+.env
+*.key
+*tokens*
+
+# generated datasets (regenerate locally; never commit)
+*.jsonl
+!examples/*.jsonl
+
+# python
+__pycache__/
+*.pyc
+
+# OS
+.DS_Store
