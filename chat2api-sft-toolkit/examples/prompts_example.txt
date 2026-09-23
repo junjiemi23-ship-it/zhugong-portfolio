@@ -1,0 +1,7 @@
+# 示例问题清单：每行一个问题，# 开头的是注释会被跳过
+# 复制成自己的文件再改：cp examples/prompts_example.txt my_prompts.txt
+用一句话解释什么是监督微调（SFT）。
+蒸馏（distillation）在大模型训练里是什么意思？
+为什么 SFT 数据质量比数量更重要？
+JSONL 是什么格式？举一个最小的例子。
+解释一下什么是指数退避（exponential backoff），它用在什么场景？
