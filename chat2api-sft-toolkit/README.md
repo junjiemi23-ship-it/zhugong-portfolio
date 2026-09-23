@@ -1,80 +1,83 @@
-# chat2api-sft-toolkit · 把吃灰的 Chat 订阅额度变成 SFT 数据集
+# chat2api-sft-toolkit · Turn idle Chat subscription quota into an SFT dataset
 
-> 配套 X 帖子：《把吃灰的 Chat 订阅额度，变成你的免费 API》
-> 帖子链接：（发布后补充）
+> Companion to the X thread: "Turn your idle Chat subscription quota into a free API"
+> Thread link: (to be added after publishing)
 
-## 这是什么
+[中文版 → README.zh-CN.md](README.zh-CN.md)
 
-一个小工具包，回答一个具体问题：**你每个月交着的 Chat 订阅额度，除了人肉聊天，还能不能变成你自己的东西？**
+## What is this
 
-思路来自开源项目 [Sun9220/chat2api](https://github.com/Sun9220/chat2api)（MIT）：它把网页版 ChatGPT 逆向成 OpenAI 兼容的 API（`POST /v1/chat/completions`，本地默认 `http://127.0.0.1:5005/v1`）。额度还是你订阅里的额度，但变成了**可编程的额度**。
+A small toolkit that answers one specific question: **besides chatting by hand, what else can your monthly Chat subscription quota become?**
 
-这个工具包做的是"后半程"：用大模型当老师，批量生成高质量问答对，清洗成干净的指令数据集，拿去微调本地小模型（Qwen / LLaMA 系）——也就是**蒸馏**。SFT 学的是"模仿"，数据质量决定上限：500 条干净的比 5000 条脏的好用。
+The idea comes from the open-source project [Sun9220/chat2api](https://github.com/Sun9220/chat2api) (MIT): it reverse-engineers the web version of ChatGPT into an OpenAI-compatible API (`POST /v1/chat/completions`, local default `http://127.0.0.1:5005/v1`). The quota is still the quota inside your subscription — but it becomes **programmable quota**.
 
-## 适合谁
+This toolkit handles the "second half": use a large model as the teacher, batch-generate high-quality Q&A pairs, clean them into a tidy instruction dataset, and fine-tune a local small model (Qwen / LLaMA family) — i.e. **distillation**. SFT learns "imitation", and data quality sets the ceiling: 500 clean examples beat 5,000 dirty ones.
 
-- 交着 Plus / Pro 订阅、额度用不完的个人开发者
-- 想低成本玩 SFT / 蒸馏、但不想为数据标注付费的人
-- 对"逆向 API 能做什么、不能做什么"有清醒认知的人（先看 [docs/pitfalls.md](docs/pitfalls.md)）
+## Who it's for
 
-## 特别声明（先读）
+- Individual developers with a Plus / Pro subscription and quota to spare
+- People who want to play with SFT / distillation on the cheap, without paying for data labeling
+- People with a clear-eyed view of what a reverse-engineered API can and cannot do (read [docs/pitfalls.md](docs/pitfalls.md) first)
 
-**以下内容仅供研究学习、个人开发和自己使用。** 逆向接口可能违反服务条款，封号是真实风险。请勿用于公开服务或商业用途，后果自负。
+## Disclaimer (read first)
 
-另外一个硬提醒（来自实测）：这类逆向通道对 `tools` 参数支持有限——实测没有产生原生 `tool_calls`，模型甚至以纯文本编造过执行结果。所以它适合**生成、评测、造数据**；要做 agent 工具调用，请走官方 API。详见 [docs/pitfalls.md](docs/pitfalls.md)。
+**The following is for research, personal development, and personal use only.** Reverse-engineered interfaces may violate terms of service, and account bans are a real risk. Do not use it for public services or commercial purposes; you are responsible for the consequences.
 
-## 快速开始
+One more hard-won reminder (from real testing): these reverse-engineered channels have limited support for the `tools` parameter — in testing, no native `tool_calls` were ever produced, and the model even fabricated execution results in plain text. So it's good for **generation, evaluation, and data synthesis**; for agentic tool calling, use the official API. See [docs/pitfalls.md](docs/pitfalls.md).
 
-你需要**自己的一套 chat2api 部署**（按 [Sun9220/chat2api](https://github.com/Sun9220/chat2api) 的 README 来，三选一）：
+## Quickstart
+
+You need **your own chat2api deployment** (follow the [Sun9220/chat2api](https://github.com/Sun9220/chat2api) README; three options):
 
 ```bash
-# 最省事：Zeabur 一键部署；有服务器：
+# Easiest: one-click Zeabur deploy; if you have a server:
 docker run -d -p 5005:5005 lanqian528/chat2api:latest
-# 本地：pip install -r requirements.txt && python app.py
+# Local: pip install -r requirements.txt && python app.py
 ```
 
-然后：
+Then:
 
 ```bash
-# 1. 准备问题清单（每行一个），示例可直接改
+# 1. Prepare your prompt list (one per line); the example is a good starting point
 cp examples/prompts_example.txt my_prompts.txt
 
-# 2. 配置（全部走环境变量，也可用命令行 flag 覆盖，--help 查看）
+# 2. Configure (everything via environment variables; CLI flags override, see --help)
 export CHAT2API_BASE_URL=http://127.0.0.1:5005/v1
-export CHAT2API_API_KEY=你的授权码        # 没设 AUTHORIZATION 就留空
-export CHAT2API_MODEL=gpt-4o-mini         # 按你的部署和登录情况改
+export CHAT2API_API_KEY=your_auth_code   # leave empty if AUTHORIZATION is not set
+export CHAT2API_MODEL=gpt-4o-mini        # adjust to your deployment and login
 
-# 3. 批量生成（断点续跑：已生成过的问题会自动跳过）
+# 3. Batch-generate (resumable: prompts already generated are skipped automatically)
 python3 scripts/generate_dataset.py --prompts my_prompts.txt --out data/qa_raw.jsonl
 
-# 4. 清洗成 SFT 可用数据（去重、长度过滤、去样板回复，并打印统计）
+# 4. Clean into SFT-ready data (dedupe, length filters, boilerplate removal, with stats)
 python3 scripts/clean_dataset.py --in data/qa_raw.jsonl --out data/qa_sft.jsonl
 ```
 
-`data/` 下的 `*.jsonl` 不会进仓库（见 `.gitignore`），数据只留在你本地。
+`*.jsonl` under `data/` never enters the repo (see `.gitignore`); your data stays local.
 
-依赖：只有 Python 标准库，零第三方包。
+Dependencies: Python standard library only, zero third-party packages.
 
-## 目录结构
+## Project structure
 
 ```text
 chat2api-sft-toolkit/
-├── README.md               # 本文件
+├── README.md               # This file (English)
+├── README.zh-CN.md         # Chinese version
 ├── LICENSE                 # MIT
 ├── scripts/
-│   ├── generate_dataset.py # 批量问答生成（断点续跑、指数退避重试）
-│   └── clean_dataset.py    # SFT 数据清洗（去重、过滤、统计）
+│   ├── generate_dataset.py # Batch Q&A generation (resumable, exponential-backoff retries)
+│   └── clean_dataset.py    # SFT data cleaning (dedupe, filters, stats)
 ├── docs/
-│   ├── pitfalls.md         # 踩坑记录：tool_calls 与逆向接线四道坎
-│   └── article.md          # 配套帖子的长文版
+│   ├── pitfalls.md         # Pitfall notes: tool_calls and the four wiring hurdles
+│   └── article.md          # Long-form version of the companion X thread (Chinese)
 └── examples/
-    └── prompts_example.txt # 示例问题清单
+    └── prompts_example.txt # Example prompt list
 ```
 
-## 相关项目
+## Related projects
 
-- [codex-quota-monitor](../codex-quota-monitor/) —— 盯 AI 额度/状态信号的监控脚本：状态翻转时邮件推送。本工具包只管"把额度变成数据"，额度本身的监控用它，不重复造轮子。
+- [codex-quota-monitor](../codex-quota-monitor/) — monitors AI quota/status signals and pushes email alerts on status flips. This toolkit only turns quota into data; quota monitoring itself lives there — no reinvented wheels.
 
-## 协议
+## License
 
-MIT（见 [LICENSE](LICENSE)）。chat2api 本体是 Sun9220/chat2api（MIT），本项目是它周边的数据工具包，不含任何逆向服务端实现。
+MIT (see [LICENSE](LICENSE)). chat2api itself is Sun9220/chat2api (MIT); this project is a data toolkit around it and contains no reverse-engineered server implementation.
