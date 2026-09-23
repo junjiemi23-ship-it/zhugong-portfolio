@@ -30,6 +30,7 @@ Every case shows "problem — role — process — verification" right on the ho
 ## Practiced / more
 
 - [chat2api-sft-toolkit](chat2api-sft-toolkit/): turn idle Chat subscription quota into SFT datasets — batch Q&A generation, data cleaning, and pitfall notes around the open-source chat2api project ([中文版](chat2api-sft-toolkit/README.zh-CN.md)).
+- [agent-dispatch-kit](agent-dispatch-kit/): one entry point to dispatch all your agents — three-layer architecture, structured dispatch/report prompt templates, and the dispatch → track → accept → advise workflow with independent second-model scoring ([中文版](agent-dispatch-kit/README.zh-CN.md)).
 - [overseas-deploy](overseas-deploy/): deployment choices, Cloudflare Pages / GitHub Pages, SEO migration and incident review; this site is itself the deliverable.
 - [web-research](web-research/): open-web resource discovery and structured write-ups; the first case documents evaluating a free cloud resource, claiming it, and preventing renewal charges.
 - [docs](docs/): multi-agent co-management protocol and public collaboration method — role boundaries, review gates, risk red lines.
@@ -42,6 +43,7 @@ zhugong-portfolio/
 ├── index.html             # Bilingual static portfolio homepage
 ├── assets/                # Public assets such as social preview images
 ├── chat2api-sft-toolkit/  # Turn Chat quota into SFT datasets (bilingual)
+├── agent-dispatch-kit/    # One entry point to dispatch all agents (bilingual)
 ├── codex-quota-monitor/   # Python status monitoring & notifications
 ├── phone-automation/      # ADB / scrcpy and human-in-the-loop vision
 ├── overseas-deploy/       # Lightweight web deployment & reachability review
