@@ -1,7 +1,7 @@
 # chat2api-sft-toolkit · Turn idle Chat subscription quota into an SFT dataset
 
 > Companion to the X thread: "Turn your idle Chat subscription quota into a free API"
-> Thread link: (to be added after publishing)
+> Thread link: https://x.com/jiemi232/status/2102592126412587502?s=46
 
 [中文版 → README.zh-CN.md](README.zh-CN.md)
 
