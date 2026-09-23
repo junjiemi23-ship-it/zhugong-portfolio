@@ -1,66 +1,69 @@
-# 主公的粮仓 / Zhugong's Granary
+# Zhugong's Granary
 
-> 把 AI 接入真实工作流，做成可以运行、可以验证的自动化项目。
+> Plugging AI into real workflows — automation projects that run and can be verified.
 
-聚焦 **AI 应用、智能体协作与自动化实践**，同时具备轻量 Web 开发和部署能力。这里不是项目数量清单，而是一组围绕真实问题、公开证据和复盘过程整理的个人作品。
+[中文版 → README.zh-CN.md](README.zh-CN.md)
 
-[在线作品集（Cloudflare Pages）](https://zhugong-portfolio.pages.dev/) · [GitHub 主页](https://github.com/junjiemi23-ship-it) · [邮件联系](mailto:junjiemi23@gmail.com)
+Focused on **applied AI, multi-agent collaboration, and automation practice**, with lightweight web development and deployment skills. This is not a project-count list, but a personal portfolio organized around real problems, public evidence, and review write-ups.
 
-## Featured / 代表作品
+[Live portfolio (Cloudflare Pages)](https://zhugong-portfolio.pages.dev/) · [GitHub profile](https://github.com/junjiemi23-ship-it) · [Email](mailto:junjiemi23@gmail.com)
 
-| 项目 | 解决的问题 | 我的角色与公开证据 | 状态 |
+## Featured
+
+| Project | Problem it solves | My role & public evidence | Status |
 |---|---|---|---|
-| [codex-quota-monitor](codex-quota-monitor/) | AI 工具没有主动状态提醒，人工盯信号容易漏报或重复打扰 | 定义提醒边界与验收场景，推动状态机、翻转判重和防抖方案落地；公开零依赖 Python 脚本、配置模板和三类离线自测入口 | 已实践 |
-| [phone-automation](phone-automation/) | WebView、自绘 UI 或深色模式下，常规元素树和颜色检测无法可靠定位目标 | 提供标注并验证结果，选择“人工标注 + 像素差异”路线，划定低风险自动化边界；公开方法论、伪代码和脱敏示意图 | 已实践 |
+| [codex-quota-monitor](codex-quota-monitor/) | AI tools don't push status alerts; watching signals by hand means missed or duplicate nudges | Defined alert boundaries and acceptance scenarios; drove the state machine, flip dedup, and debounce design; published a zero-dependency Python script, config templates, and three offline self-test entries | Practiced |
+| [phone-automation](phone-automation/) | Under WebView, custom-drawn UI, or dark mode, element trees and color detection can't reliably locate targets | Provided labels and verified results; chose the "human labeling + pixel diff" approach and set low-risk automation boundaries; published methodology, pseudocode, and sanitized diagrams | Practiced |
 
-多个案例均在首页直接展示“问题—角色—流程—验证”。项目目录继续承载完整代码、方法、限制和公开证据。
+Every case shows "problem — role — process — verification" right on the homepage. Project directories carry the full code, methods, limitations, and public evidence.
 
-## 能力矩阵
+## Capability matrix
 
-| 能力 | 已实践证据 |
+| Capability | Practiced evidence |
 |---|---|
-| AI 应用与自动化 | Python 状态监控、SMTP 通知、cron 定时巡检、状态机与翻转判重 |
-| 智能体协作 | 写入声明、角色分工、交接文件、人工审阅门与发布前核验 |
-| 设备与浏览器工作流 | ADB / scrcpy 手机操控链路、Chrome 接入、代理规则分流与故障定位 |
-| 轻量 Web 交付 | 纯 HTML / CSS / JavaScript、响应式与双语页面、Cloudflare Pages 与 GitHub Pages |
-| 调研与文档 | 公开信息核验、决策链记录、隐私脱敏、可复查的实战文档 |
+| Applied AI & automation | Python status monitoring, SMTP notifications, cron patrols, state machines with flip dedup |
+| Multi-agent collaboration | Written mandates, role split, handoff files, human review gates, pre-publish verification |
+| Device & browser workflows | ADB / scrcpy phone control chain, Chrome access, proxy rule routing and fault localization |
+| Lightweight web delivery | Pure HTML / CSS / JavaScript, responsive bilingual pages, Cloudflare Pages and GitHub Pages |
+| Research & docs | Open-source intel verification, decision-chain records, privacy sanitization, reviewable hands-on docs |
 
-## Practiced / 其他已实践
+## Practiced / more
 
-- [overseas-deploy](overseas-deploy/)：部署选型、Cloudflare Pages / GitHub Pages、SEO 迁移和故障复盘；本站即交付物。
-- [web-research](web-research/)：公开资源检索与结构化整理；首个案例记录免费云资源甄别、领取与到期防扣费决策链。
-- [docs](docs/)：多智能体共管协议与公开协作方法，记录角色边界、审阅门和风险红线。
-- [二手数码套利监控实战文档](docs/articles/二手数码套利监控从零搭建实战.md)：从需求拆解到自动化管线的脱敏复盘。
+- [chat2api-sft-toolkit](chat2api-sft-toolkit/): turn idle Chat subscription quota into SFT datasets — batch Q&A generation, data cleaning, and pitfall notes around the open-source chat2api project ([中文版](chat2api-sft-toolkit/README.zh-CN.md)).
+- [overseas-deploy](overseas-deploy/): deployment choices, Cloudflare Pages / GitHub Pages, SEO migration and incident review; this site is itself the deliverable.
+- [web-research](web-research/): open-web resource discovery and structured write-ups; the first case documents evaluating a free cloud resource, claiming it, and preventing renewal charges.
+- [docs](docs/): multi-agent co-management protocol and public collaboration method — role boundaries, review gates, risk red lines.
+- [二手数码套利监控实战文档](docs/articles/二手数码套利监控从零搭建实战.md) (Chinese): sanitized review from requirements breakdown to an automated pipeline.
 
-## 仓库索引
+## Repo index
 
 ```text
 zhugong-portfolio/
-├── index.html             # 双语静态作品集首页
-├── assets/                # 网站分享图等公开资产
-├── codex-quota-monitor/   # Python 状态监控与通知
-├── phone-automation/      # ADB / scrcpy 与人机协作识图
-├── overseas-deploy/       # 轻量网页部署与可达性复盘
-├── web-research/          # 公开资源检索与验证
-└── docs/                  # 方法文档、文章与协作约定
-└── holiday-pages/         # Lab：待重新定义
+├── index.html             # Bilingual static portfolio homepage
+├── assets/                # Public assets such as social preview images
+├── chat2api-sft-toolkit/  # Turn Chat quota into SFT datasets (bilingual)
+├── codex-quota-monitor/   # Python status monitoring & notifications
+├── phone-automation/      # ADB / scrcpy and human-in-the-loop vision
+├── overseas-deploy/       # Lightweight web deployment & reachability review
+├── web-research/          # Open-web resource discovery & verification
+└── docs/                  # Method docs, articles, collaboration agreements
 ```
 
-## 真实性与 AI 协作说明
+## Authenticity & AI collaboration
 
-- 我负责提出真实需求、选择路线、设置公开与风险边界，并对最终结果进行人工验收。
-- Codex、Work1、Work2 等 AI 工具参与调研、方案讨论、代码或文档起草、排错和交叉复核；项目不会把 AI 辅助内容表述成完全独立手写。
-- 只有已经运行、测试或形成公开证据的内容才标记为“已实践”；计划与实验不会包装成已完成成果。
-- 数字和状态优先以代码、自测入口、仓库文件或部署结果为依据；无法公开核实的内容改用定性描述。
+- I own the real requirements, the choice of approach, the public/risk boundaries, and the final human acceptance.
+- AI tools (Codex, Work1, Work2, etc.) help with research, design discussion, drafting code or docs, debugging, and cross-review; AI-assisted content is never presented as fully hand-written.
+- Only work that has run, been tested, or produced public evidence is marked "practiced"; plans and experiments are never dressed up as finished results.
+- Numbers and statuses rest on code, self-test entries, repo files, or deployment results first; whatever can't be publicly verified is described qualitatively.
 
-## 隐私与合规
+## Privacy & compliance
 
-- 公开内容不包含真实姓名、学校、专业、年级、手机号、住址、证件、学号、服务器 IP、设备标识、密钥或授权码。
-- 涉及登录态、真实业务或第三方平台的项目只公开方法论、占位配置与脱敏示例，不提交原始数据或可直接操作真实业务的脚本。
-- 自动化仅用于低风险辅助并遵守相关平台条款；交易核心、发消息和其他高风险动作保留人工确认。
+- Public content contains no real name, school, major, grade, phone number, address, IDs, student number, server IPs, device identifiers, keys, or auth codes.
+- Projects touching login state, real business, or third-party platforms publish only methodology, placeholder configs, and sanitized examples — never raw data or scripts that could operate real business directly.
+- Automation is limited to low-risk assistance and follows the relevant platforms' terms; trading cores, messaging, and other high-risk actions stay behind human confirmation.
 
-## 运行与联系
+## Run & contact
 
-本站无需构建工具，直接打开 `index.html` 即可本地查看。线上主入口为 [zhugong-portfolio.pages.dev](https://zhugong-portfolio.pages.dev/)。
+No build tools needed — just open `index.html` to preview locally. The live site is [zhugong-portfolio.pages.dev](https://zhugong-portfolio.pages.dev/).
 
-正在寻找 **AI 应用、智能体自动化方向实习**，也愿意承担轻量 Web 开发与部署工作：<junjiemi23@gmail.com>
+Looking for an **internship in applied AI / agent automation**, also open to lightweight web development and deployment work: <junjiemi23@gmail.com>
