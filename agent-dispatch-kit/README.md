@@ -1,7 +1,7 @@
 # agent-dispatch-kit · One entry point to dispatch all your agents
 
 > Companion to the X thread: "It solved 99% of my 'can't use my computer while away' problem"
-> X thread link: _coming soon — the thread is in final review; the link will be added here once published._
+> X thread: https://x.com/jiemi232/status/2102741959148445825?s=46
 
 [中文版 → README.zh-CN.md](README.zh-CN.md)
 
