@@ -1,7 +1,7 @@
 # agent-dispatch-kit · 一个入口，调度所有 agent
 
 > 配套 X 帖子："它解决了我 99% 在外面用不了电脑的问题"
-> 帖子链接：_待补充——帖子还在最后确认，发布后会补上链接。_
+> 帖子链接：https://x.com/jiemi232/status/2102741959148445825?s=46
 
 [English → README.md](README.md)
 
