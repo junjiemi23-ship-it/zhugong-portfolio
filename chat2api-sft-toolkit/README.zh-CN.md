@@ -1,7 +1,7 @@
 # chat2api-sft-toolkit · 把吃灰的 Chat 订阅额度变成 SFT 数据集
 
 > 配套 X 帖子：《把吃灰的 Chat 订阅额度，变成你的免费 API》
-> 帖子链接：（发布后补充）
+> 帖子链接：https://x.com/jiemi232/status/2102592126412587502?s=46
 
 [English → README.md](README.md)
 
