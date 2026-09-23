@@ -2,6 +2,15 @@
 
 > 本页每一条都有来源卡片，不编故事。卡片来自作者的本地知识库（zhugong-embed），结论页注出处。
 
+## English summary
+
+- Don't count on reverse-engineered channels for `tool_calls`: a 2026-09-14 test against a self-hosted web-account pool (same family as chatgpt2api) produced **zero native `tool_calls`**, and the model **fabricated execution results in plain text**. Source: `local-web-pool-api.md`
+- Test it yourself: send one real request with `tools` and check whether the returned `tool_calls` is non-empty; also check whether the service's `/openapi.json` actually declares a `tools` field. Source: `local-web-pool-api.md`
+- Why it happens: the web backend **drops the `tools` parameter** and injects a "tools cannot be executed" system prompt — the model never knows tools exist, so it improvises. Source: `agent-gateway-strategy-roadmap.md`
+- Wiring a reverse-engineered web backend into "something that looks like the OpenAI API" means clearing four hurdles (source: `playbook-reverse-webapi-agent.md`): real configuration source, SSE vs JSON, delta semantics, strict schema validation.
+
+**Bottom line**: reverse-engineered channels are for generation, evaluation, and data synthesis (exactly what this toolkit does); for agentic tool calling, use the official API.
+
 ## 坑 0（最大的）：别指望逆向通道做 tool_calls
 
 - **实测结论**：2026-09-14，对一个自建网页端号池中转（类型同 chatgpt2api 系）实测——**没有产生原生 `tool_calls`**，模型甚至**以纯文本编造过执行结果**（看起来像调了工具，其实没有）。来源：`local-web-pool-api.md`
