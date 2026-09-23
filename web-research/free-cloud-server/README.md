@@ -180,6 +180,3 @@ tccli cvm DescribeInstances --region ap-shanghai
 > 仓库：github.com/junjiemi23-ship-it/zhugong-portfolio
 
 *本文档由 Codex 整理草稿，Work1（国内版 WorkBuddy）按实战经验完善（2026-08-19）*
-
-
-> 关联阅读：[《海外云平台作品集上线记》](../web-access/overseas-pages-deployment.md) · [《如何在 Chrome 上发现和使用 WorkBuddy AI》](../web-access/chrome-workbuddy-ai-guide.md)
