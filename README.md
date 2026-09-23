@@ -34,15 +34,6 @@
 - [docs](docs/)：多智能体共管协议与公开协作方法，记录角色边界、审阅门和风险红线。
 - [二手数码套利监控实战文档](docs/articles/二手数码套利监控从零搭建实战.md)：从需求拆解到自动化管线的脱敏复盘。
 
-## Labs / 实验与规划
-
-这些方向尚未作为完成成果展示，状态以各目录 README 为准：
-
-- [ai-chat](ai-chat/)：AI 助手接入与体验比较——规划。
-- [surveys](surveys/)：问卷设计与结构化数据流程——规划。
-- [chat-companion](chat-companion/)：只使用脱敏示例的角色化对话实验——实验。
-- [holiday-pages](holiday-pages/)：方向待重新定义——待定。
-
 ## 仓库索引
 
 ```text
@@ -55,10 +46,7 @@ zhugong-portfolio/
 ├── smto-gateway/          # 三智能体共用模型路由网关
 ├── overseas-deploy/       # 轻量网页部署与可达性复盘
 ├── web-research/          # 公开资源检索与验证
-├── docs/                  # 方法文档、文章与协作约定
-├── ai-chat/               # Lab：AI 对话平台实验
-├── surveys/               # Lab：调研与数据处理
-├── chat-companion/        # Lab：脱敏角色对话
+└── docs/                  # 方法文档、文章与协作约定
 └── holiday-pages/         # Lab：待重新定义
 ```
 
