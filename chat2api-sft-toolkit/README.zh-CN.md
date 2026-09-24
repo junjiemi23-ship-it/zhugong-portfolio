@@ -82,10 +82,6 @@ chat2api-sft-toolkit/
     └── prompts_example.txt # 示例问题清单
 ```
 
-## 相关项目
-
-- [codex-quota-monitor](../codex-quota-monitor/) —— 盯 AI 额度/状态信号的监控脚本：状态翻转时邮件推送。本工具包只管"把额度变成数据"，额度本身的监控用它，不重复造轮子。
-
 ## 协议
 
 MIT（见 [LICENSE](LICENSE)）。chat2api 本体是 Sun9220/chat2api（MIT），本项目是它周边的数据工具包，不含任何逆向服务端实现。
