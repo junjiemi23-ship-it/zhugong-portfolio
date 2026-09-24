@@ -2,6 +2,7 @@
 
 > 配套 X 帖子：《把吃灰的 Chat 订阅额度，变成你的免费 API》
 > 帖子链接：https://x.com/jiemi232/status/2102592126412587502?s=46
+> 配套帖子二（踩坑长文）：https://x.com/jiemi232/status/2102726759800328567?s=46
 
 [English → README.md](README.md)
 
@@ -24,6 +25,10 @@
 **以下内容仅供研究学习、个人开发和自己使用。** 逆向接口可能违反服务条款，封号是真实风险。请勿用于公开服务或商业用途，后果自负。
 
 另外一个硬提醒（来自实测）：这类逆向通道对 `tools` 参数支持有限——实测没有产生原生 `tool_calls`，模型甚至以纯文本编造过执行结果。所以它适合**生成、评测、造数据**；要做 agent 工具调用，请走官方 API。详见 [docs/pitfalls.md](docs/pitfalls.md)。
+
+## 懒人一键指令
+
+不想动手？把 [prompts/lazy-oneclick.md](prompts/lazy-oneclick.md) 里 `---` 之间的整段复制，粘贴发给你的 agent（Cursor / opencode / codex / Claude 等），它会自动跑完部署 → 接入 token → 批量生成 → 清洗成 SFT 数据集 → 抽查验收。你只需要在标记的地方露面：粘一下 token、定一下主题和数量、最后抽查确认。红线：仅个人研究学习用，不商用、不对外提供服务。
 
 ## 快速开始
 
@@ -69,7 +74,10 @@ chat2api-sft-toolkit/
 │   └── clean_dataset.py    # SFT 数据清洗（去重、过滤、统计）
 ├── docs/
 │   ├── pitfalls.md         # 踩坑记录：tool_calls 与逆向接线四道坎
+│   ├── pitfalls-deep-dive.md # 深度长文：坑 0 + 逆向接线四道坎（中文）
 │   └── article.md          # 配套帖子的长文版（中文）
+├── prompts/
+│   └── lazy-oneclick.md    # 懒人一键指令：复制一段话发给 agent，全自动跑完
 └── examples/
     └── prompts_example.txt # 示例问题清单
 ```
