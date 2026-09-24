@@ -82,10 +82,6 @@ chat2api-sft-toolkit/
     └── prompts_example.txt # Example prompt list
 ```
 
-## Related projects
-
-- [codex-quota-monitor](../codex-quota-monitor/) — monitors AI quota/status signals and pushes email alerts on status flips. This toolkit only turns quota into data; quota monitoring itself lives there — no reinvented wheels.
-
 ## License
 
 MIT (see [LICENSE](LICENSE)). chat2api itself is Sun9220/chat2api (MIT); this project is a data toolkit around it and contains no reverse-engineered server implementation.
