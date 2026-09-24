@@ -5,6 +5,9 @@
 >
 > Technical companion: "A single entry point to dispatch all your agents — Muse as dispatcher, Jev as acceptance, Bridge as the execution layer"
 > X thread: https://x.com/jiemi232/status/2103153535206797342?s=46
+>
+> Lazy-mode companion: "Copy-paste this prompt and your agent sets up the whole project"
+> X thread: https://x.com/jiemi232/status/2103163429951594855?s=46
 
 [中文版 → README.zh-CN.md](README.zh-CN.md)
 
