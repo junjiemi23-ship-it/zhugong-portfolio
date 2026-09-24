@@ -2,6 +2,9 @@
 
 > Companion to the X thread: "It solved 99% of my 'can't use my computer while away' problem"
 > X thread: https://x.com/jiemi232/status/2102741959148445825?s=46
+>
+> Technical companion: "A single entry point to dispatch all your agents — Muse as dispatcher, Jev as acceptance, Bridge as the execution layer"
+> X thread: https://x.com/jiemi232/status/2103153535206797342?s=46
 
 [中文版 → README.zh-CN.md](README.zh-CN.md)
 
