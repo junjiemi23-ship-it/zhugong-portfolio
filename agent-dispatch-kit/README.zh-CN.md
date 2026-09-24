@@ -16,6 +16,8 @@
 ## 包含什么
 
 - [docs/architecture.md](docs/architecture.md) —— 三层架构与设计原则（英文）
+- [docs/quickstart.zh-CN.md](docs/quickstart.zh-CN.md) —— 能跑起来的最小保守配置（[English](docs/quickstart.md)）
+- [docs/operations.zh-CN.md](docs/operations.zh-CN.md) —— 真实运维经验：重启纪律、超时设置、白名单工作流（[English](docs/operations.md)）
 - [prompts/dispatch-template.md](prompts/dispatch-template.md) —— 给干活 agent 的结构化指令模板：目标 / 约束 / 验收标准
 - [prompts/report-template.md](prompts/report-template.md) —— 干活 agent 的结构化汇报模板：完成 / 证据 / 风险
 - [prompts/acceptance.md](prompts/acceptance.md) —— 验收工作流，含第二个模型独立打分
