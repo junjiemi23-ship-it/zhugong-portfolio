@@ -12,8 +12,8 @@ Focused on **applied AI, multi-agent collaboration, and automation practice**, w
 
 | Project | Problem it solves | My role & public evidence | Status |
 |---|---|---|---|
-| [codex-quota-monitor](codex-quota-monitor/) | AI tools don't push status alerts; watching signals by hand means missed or duplicate nudges | Defined alert boundaries and acceptance scenarios; drove the state machine, flip dedup, and debounce design; published a zero-dependency Python script, config templates, and three offline self-test entries | Practiced |
-| [phone-automation](phone-automation/) | Under WebView, custom-drawn UI, or dark mode, element trees and color detection can't reliably locate targets | Provided labels and verified results; chose the "human labeling + pixel diff" approach and set low-risk automation boundaries; published methodology, pseudocode, and sanitized diagrams | Practiced |
+| [chat2api-sft-toolkit](chat2api-sft-toolkit/) | Chat subscription quota goes unused every month, while SFT data labeling is expensive | Built batch Q&A generation and data-cleaning scripts (stdlib only) around the open-source chat2api project; published wiring pitfalls from real testing; bilingual docs | Practiced |
+| [agent-dispatch-kit](agent-dispatch-kit/) | No unified way to dispatch, track, and verify work across multiple AI agents | Designed the three-layer architecture and structured dispatch/report prompt templates; dispatch → track → accept → advise workflow with independent second-model scoring | Practiced |
 
 Every case shows "problem — role — process — verification" right on the homepage. Project directories carry the full code, methods, limitations, and public evidence.
 
@@ -27,15 +27,6 @@ Every case shows "problem — role — process — verification" right on the ho
 | Lightweight web delivery | Pure HTML / CSS / JavaScript, responsive bilingual pages, Cloudflare Pages and GitHub Pages |
 | Research & docs | Open-source intel verification, decision-chain records, privacy sanitization, reviewable hands-on docs |
 
-## Practiced / more
-
-- [chat2api-sft-toolkit](chat2api-sft-toolkit/): turn idle Chat subscription quota into SFT datasets — batch Q&A generation, data cleaning, and pitfall notes around the open-source chat2api project ([中文版](chat2api-sft-toolkit/README.zh-CN.md)).
-- [agent-dispatch-kit](agent-dispatch-kit/): one entry point to dispatch all your agents — three-layer architecture, structured dispatch/report prompt templates, and the dispatch → track → accept → advise workflow with independent second-model scoring ([中文版](agent-dispatch-kit/README.zh-CN.md)).
-- [overseas-deploy](overseas-deploy/): deployment choices, Cloudflare Pages / GitHub Pages, SEO migration and incident review; this site is itself the deliverable.
-- [web-research](web-research/): open-web resource discovery and structured write-ups; the first case documents evaluating a free cloud resource, claiming it, and preventing renewal charges.
-- [docs](docs/): multi-agent co-management protocol and public collaboration method — role boundaries, review gates, risk red lines.
-- [二手数码套利监控实战文档](docs/articles/二手数码套利监控从零搭建实战.md) (Chinese): sanitized review from requirements breakdown to an automated pipeline.
-
 ## Repo index
 
 ```text
@@ -43,12 +34,7 @@ zhugong-portfolio/
 ├── index.html             # Bilingual static portfolio homepage
 ├── assets/                # Public assets such as social preview images
 ├── chat2api-sft-toolkit/  # Turn Chat quota into SFT datasets (bilingual)
-├── agent-dispatch-kit/    # One entry point to dispatch all agents (bilingual)
-├── codex-quota-monitor/   # Python status monitoring & notifications
-├── phone-automation/      # ADB / scrcpy and human-in-the-loop vision
-├── overseas-deploy/       # Lightweight web deployment & reachability review
-├── web-research/          # Open-web resource discovery & verification
-└── docs/                  # Method docs, articles, collaboration agreements
+└── agent-dispatch-kit/    # One entry point to dispatch all agents (bilingual)
 ```
 
 ## Authenticity & AI collaboration
