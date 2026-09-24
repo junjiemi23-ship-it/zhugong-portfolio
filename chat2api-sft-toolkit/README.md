@@ -2,6 +2,7 @@
 
 > Companion to the X thread: "Turn your idle Chat subscription quota into a free API"
 > Thread link: https://x.com/jiemi232/status/2102592126412587502?s=46
+> Companion thread 2 (pitfalls deep-dive): https://x.com/jiemi232/status/2102726759800328567?s=46
 
 [中文版 → README.zh-CN.md](README.zh-CN.md)
 
@@ -24,6 +25,10 @@ This toolkit handles the "second half": use a large model as the teacher, batch-
 **The following is for research, personal development, and personal use only.** Reverse-engineered interfaces may violate terms of service, and account bans are a real risk. Do not use it for public services or commercial purposes; you are responsible for the consequences.
 
 One more hard-won reminder (from real testing): these reverse-engineered channels have limited support for the `tools` parameter — in testing, no native `tool_calls` were ever produced, and the model even fabricated execution results in plain text. So it's good for **generation, evaluation, and data synthesis**; for agentic tool calling, use the official API. See [docs/pitfalls.md](docs/pitfalls.md).
+
+## Lazy one-click prompt
+
+Don't want to touch the terminal? Copy the block between the `---` markers in [prompts/lazy-oneclick.md](prompts/lazy-oneclick.md) and paste it to your agent (Cursor / opencode / codex / Claude). It automates the whole chain: deploy → token setup → batch generation → cleaning into an SFT dataset → sampling review. You only step in where marked: paste your token, pick the topic and count, and confirm the final sample. Red lines: personal research and study only — no commercial use, no public services.
 
 ## Quickstart
 
@@ -69,7 +74,10 @@ chat2api-sft-toolkit/
 │   └── clean_dataset.py    # SFT data cleaning (dedupe, filters, stats)
 ├── docs/
 │   ├── pitfalls.md         # Pitfall notes: tool_calls and the four wiring hurdles
+│   ├── pitfalls-deep-dive.md # Deep-dive long-form: pit 0 + the four wiring hurdles (Chinese)
 │   └── article.md          # Long-form version of the companion X thread (Chinese)
+├── prompts/
+│   └── lazy-oneclick.md    # One-click prompt: paste to your agent, runs the full chain
 └── examples/
     └── prompts_example.txt # Example prompt list
 ```
