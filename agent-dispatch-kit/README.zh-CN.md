@@ -5,6 +5,9 @@
 >
 > 技术篇配套帖子："一个入口调度所有 agent——Muse 当总指挥，Jev 当验收官，Bridge 当执行层"
 > 帖子链接：https://x.com/jiemi232/status/2103153535206797342?s=46
+>
+> 懒人篇配套帖子："一段话术复制粘贴，agent 替你配好整个项目"
+> 帖子链接：https://x.com/jiemi232/status/2103163429951594855?s=46
 
 [English → README.md](README.md)
 
