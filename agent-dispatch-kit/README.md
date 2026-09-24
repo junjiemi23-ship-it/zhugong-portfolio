@@ -16,6 +16,8 @@ Everything here is from a setup that actually runs daily — nothing is hypothet
 ## What's inside
 
 - [docs/architecture.md](docs/architecture.md) — the three-layer architecture and design principles
+- [docs/quickstart.md](docs/quickstart.md) — the smallest conservative setup that works ([中文](docs/quickstart.zh-CN.md))
+- [docs/operations.md](docs/operations.md) — hard-won operational lessons: restart discipline, timeouts, whitelist workflow ([中文](docs/operations.zh-CN.md))
 - [prompts/dispatch-template.md](prompts/dispatch-template.md) — structured instruction template for worker agents (objective / constraints / acceptance criteria)
 - [prompts/report-template.md](prompts/report-template.md) — structured report-back template (done / evidence / risks)
 - [prompts/acceptance.md](prompts/acceptance.md) — the acceptance workflow, including independent second-model scoring
