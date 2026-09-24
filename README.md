@@ -21,11 +21,10 @@ Every case shows "problem — role — process — verification" right on the ho
 
 | Capability | Practiced evidence |
 |---|---|
-| Applied AI & automation | Python status monitoring, SMTP notifications, cron patrols, state machines with flip dedup |
-| Multi-agent collaboration | Written mandates, role split, handoff files, human review gates, pre-publish verification |
-| Device & browser workflows | ADB / scrcpy phone control chain, Chrome access, proxy rule routing and fault localization |
+| SFT & distillation data pipelines | Batch Q&A generation (resumable, exponential-backoff retries), data cleaning with dedup and filter stats, wiring pitfalls documented from real testing |
+| Multi-agent dispatch & ops | Three-layer architecture, structured dispatch/report prompt templates, dispatch → track → accept → advise workflow with independent second-model scoring |
+| Agent-oriented prompt design | One-click lazy prompt, acceptance criteria design, reusable bilingual technical docs |
 | Lightweight web delivery | Pure HTML / CSS / JavaScript, responsive bilingual pages, Cloudflare Pages and GitHub Pages |
-| Research & docs | Open-source intel verification, decision-chain records, privacy sanitization, reviewable hands-on docs |
 
 ## Repo index
 
