@@ -12,8 +12,8 @@
 
 | 项目 | 解决的问题 | 我的角色与公开证据 | 状态 |
 |---|---|---|---|
-| [codex-quota-monitor](codex-quota-monitor/) | AI 工具没有主动状态提醒，人工盯信号容易漏报或重复打扰 | 定义提醒边界与验收场景，推动状态机、翻转判重和防抖方案落地；公开零依赖 Python 脚本、配置模板和三类离线自测入口 | 已实践 |
-| [phone-automation](phone-automation/) | WebView、自绘 UI 或深色模式下，常规元素树和颜色检测无法可靠定位目标 | 提供标注并验证结果，选择“人工标注 + 像素差异”路线，划定低风险自动化边界；公开方法论、伪代码和脱敏示意图 | 已实践 |
+| [chat2api-sft-toolkit](chat2api-sft-toolkit/) | 每月 Chat 订阅额度用不完，而 SFT 数据标注很贵 | 围绕开源 chat2api 做了批量问答生成与数据清洗脚本（纯标准库）；基于实测沉淀逆向接线踩坑记录；双语文档 | 已实践 |
+| [agent-dispatch-kit](agent-dispatch-kit/) | 多个 AI 智能体之间没有统一的派发、跟踪与验收方式 | 设计三层架构与结构化调度/汇报提示词模板；派发→跟踪→验收→建议工作流，配独立第二模型打分 | 已实践 |
 
 多个案例均在首页直接展示“问题—角色—流程—验证”。项目目录继续承载完整代码、方法、限制和公开证据。
 
@@ -27,14 +27,6 @@
 | 轻量 Web 交付 | 纯 HTML / CSS / JavaScript、响应式与双语页面、Cloudflare Pages 与 GitHub Pages |
 | 调研与文档 | 公开信息核验、决策链记录、隐私脱敏、可复查的实战文档 |
 
-## Practiced / 其他已实践
-
-- [chat2api-sft-toolkit](chat2api-sft-toolkit/)：把吃灰的 Chat 订阅额度变成 SFT 数据集——批量问答生成、数据清洗与配套开源项目 chat2api 的踩坑记录（[English](chat2api-sft-toolkit/README.md)）。
-- [overseas-deploy](overseas-deploy/)：部署选型、Cloudflare Pages / GitHub Pages、SEO 迁移和故障复盘；本站即交付物。
-- [web-research](web-research/)：公开资源检索与结构化整理；首个案例记录免费云资源甄别、领取与到期防扣费决策链。
-- [docs](docs/)：多智能体共管协议与公开协作方法，记录角色边界、审阅门和风险红线。
-- [二手数码套利监控实战文档](docs/articles/二手数码套利监控从零搭建实战.md)：从需求拆解到自动化管线的脱敏复盘。
-
 ## 仓库索引
 
 ```text
@@ -42,11 +34,7 @@ zhugong-portfolio/
 ├── index.html             # 双语静态作品集首页
 ├── assets/                # 网站分享图等公开资产
 ├── chat2api-sft-toolkit/  # Chat 额度变 SFT 数据集（双语）
-├── codex-quota-monitor/   # Python 状态监控与通知
-├── phone-automation/      # ADB / scrcpy 与人机协作识图
-├── overseas-deploy/       # 轻量网页部署与可达性复盘
-├── web-research/          # 公开资源检索与验证
-└── docs/                  # 方法文档、文章与协作约定
+└── agent-dispatch-kit/    # 一个入口调度所有智能体（双语）
 ```
 
 ## 真实性与 AI 协作说明
