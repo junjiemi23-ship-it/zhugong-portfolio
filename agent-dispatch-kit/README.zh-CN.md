@@ -27,6 +27,7 @@
 - [prompts/dispatch-template.md](prompts/dispatch-template.md) —— 给干活 agent 的结构化指令模板：目标 / 约束 / 验收标准
 - [prompts/report-template.md](prompts/report-template.md) —— 干活 agent 的结构化汇报模板：完成 / 证据 / 风险
 - [prompts/acceptance.md](prompts/acceptance.md) —— 验收工作流，含第二个模型独立打分
+- [prompts/radar-template.zh-CN.md](prompts/radar-template.zh-CN.md) —— 把任何助手调成主动信息雷达：监控范围、优先级分层、打扰纪律（[English](prompts/radar-template.md)）
 - [scripts/jev-score-example.py](scripts/jev-score-example.py) —— 独立打分的脱敏示例（API key 走环境变量，只用标准库）
 
 ## 它不是什么
