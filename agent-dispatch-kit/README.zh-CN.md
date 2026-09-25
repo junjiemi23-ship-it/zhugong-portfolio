@@ -8,6 +8,9 @@
 >
 > 懒人篇配套帖子："一段话术复制粘贴，agent 替你配好整个项目"
 > 帖子链接：https://x.com/jiemi232/status/2103163429951594855?s=46
+>
+> 雷达篇配套帖子："把 Muse 调成你的信息雷达"
+> 帖子链接：https://x.com/jiemi232/status/2103303978369134749?s=46
 
 [English → README.md](README.md)
 
