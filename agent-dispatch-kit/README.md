@@ -27,6 +27,7 @@ Everything here is from a setup that actually runs daily — nothing is hypothet
 - [prompts/dispatch-template.md](prompts/dispatch-template.md) — structured instruction template for worker agents (objective / constraints / acceptance criteria)
 - [prompts/report-template.md](prompts/report-template.md) — structured report-back template (done / evidence / risks)
 - [prompts/acceptance.md](prompts/acceptance.md) — the acceptance workflow, including independent second-model scoring
+- [prompts/radar-template.md](prompts/radar-template.md) — turn any assistant into a proactive information radar: scope, priority tiers, interruption discipline ([中文](prompts/radar-template.zh-CN.md))
 - [scripts/jev-score-example.py](scripts/jev-score-example.py) — sanitized example of second-model scoring (API key via environment variable, stdlib only)
 
 ## What this is NOT
