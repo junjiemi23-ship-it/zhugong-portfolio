@@ -8,6 +8,9 @@
 >
 > Lazy-mode companion: "Copy-paste this prompt and your agent sets up the whole project"
 > X thread: https://x.com/jiemi232/status/2103163429951594855?s=46
+>
+> Radar companion: "Turn Muse into your personal intelligence radar"
+> X thread: https://x.com/jiemi232/status/2103303978369134749?s=46
 
 [中文版 → README.zh-CN.md](README.zh-CN.md)
 
