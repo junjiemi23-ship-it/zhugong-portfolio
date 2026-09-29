@@ -732,7 +732,7 @@
     <section class="section-grid shell" id="projects">
       <div class="section-heading">
         <p class="section-kicker">Selected work</p>
-        <h2><span class="lang-zh">两个代表项目，两条真实证据链。</span><span class="lang-en">Two featured projects. Two traceable proof chains.</span></h2>
+        <h2><span class="lang-zh">三个代表项目，三条真实证据链。</span><span class="lang-en">Three featured projects. Three traceable proof chains.</span></h2>
       </div>
       <div>
         <div class="featured-stack">
@@ -764,6 +764,20 @@
             </dl>
             <ol class="case-flow" aria-label="Workflow"><li><span class="lang-zh">派发</span><span class="lang-en">Dispatch</span></li><li><span class="lang-zh">跟踪</span><span class="lang-en">Track</span></li><li><span class="lang-zh">验收</span><span class="lang-en">Accept</span></li><li><span class="lang-zh">打分</span><span class="lang-en">Score</span></li><li><span class="lang-zh">建议</span><span class="lang-en">Advise</span></li></ol>
             <div class="case-footer"><span class="case-tags">prompt templates · agent ops · second-model scoring</span><a class="text-link" href="https://github.com/junjiemi23-ship-it/zhugong-portfolio/tree/main/agent-dispatch-kit" target="_blank" rel="noreferrer"><span class="lang-zh">查看架构与模板</span><span class="lang-en">Architecture &amp; templates</span> ↗</a></div>
+          </article>
+          <article class="case-study" data-index="03">
+            <div class="case-head">
+              <span class="case-name">agent-gateway</span>
+              <span class="status done"><span class="lang-zh">已实践 · 代码公开</span><span class="lang-en">Practiced · Public code</span></span>
+            </div>
+            <h3><span class="lang-zh">把只会聊天的网页号池，变成会调工具的 agent 后端。</span><span class="lang-en">Turn a chat-only web pool into a tool-calling agent backend.</span></h3>
+            <p class="case-summary"><span class="lang-zh">网页逆向的 ChatGPT 池会静默丢弃 tools 参数，agent 客户端连上也调不了工具。自研协议桥坐在号池上层：一次 XML 伪协议把请求翻成纯文本，深预填充逼模型吐出可解析的工具调用，白名单校验后再回填成标准 tool_use；拒答或乱吐时修复梯度换 nonce 重发，救不回就诚实报错。</span><span class="lang-en">Web-reverse ChatGPT pools silently drop the tools array, so agent clients can’t call tools. This self-built protocol bridge sits atop the pool: a one-shot XML pseudo-protocol translates the request into plain text, deep prefill coerces the model into emitting a parseable tool call, whitelist validation renders it back as a standard tool_use; on refusal or garbage, a repair ladder retries with nonce rotation and fails honestly when unrecoverable.</span></p>
+            <dl class="case-facts">
+              <div><dt><span class="lang-zh">我的角色</span><span class="lang-en">My role</span></dt><dd><span class="lang-zh">设计 XML 伪协议与修复梯度，定义 P1–P5 五阶段验收门槛；三轮 A/B 跑批定位三处根因（拒答检测漏判弯引号、上游空正文、strict 清单不对齐），把工具轮合规率从 90% 修到 98.3%。</span><span class="lang-en">Designed the XML pseudo-protocol and repair ladder, defined the P1–P5 acceptance gates; three A/B batch rounds pinned down three root causes (refusal detector missing curly quotes, empty upstream bodies, strict-list misalignment), lifting tool-round compliance from 90% to 98.3%.</span></dd></div>
+              <div><dt><span class="lang-zh">验证结果</span><span class="lang-en">Verified result</span></dt><dd><span class="lang-zh">P4 四门槛全过：工具轮 59/60、多轮 20/20、闲聊 0 误触、伪造调用 0；桥审计、客户端日志、执行数据库三向对账零差异。</span><span class="lang-en">All four P4 gates passed: 59/60 tool rounds, 20/20 multi-turn, 0 chat misfires, 0 forged calls; bridge audit, client logs, and the execution database reconciled with zero drift.</span></dd></div>
+            </dl>
+            <ol class="case-flow" aria-label="Workflow"><li><span class="lang-zh">伪协议</span><span class="lang-en">Pseudo-protocol</span></li><li><span class="lang-zh">剪枝</span><span class="lang-en">Prune</span></li><li><span class="lang-zh">预填充</span><span class="lang-en">Prefill</span></li><li><span class="lang-zh">校验</span><span class="lang-en">Validate</span></li><li><span class="lang-zh">回填</span><span class="lang-en">Render</span></li></ol>
+            <div class="case-footer"><span class="case-tags">protocol bridge · tool calling · A/B verification</span><a class="text-link" href="https://github.com/junjiemi23-ship-it/zhugong-portfolio/tree/main/agent-gateway" target="_blank" rel="noreferrer"><span class="lang-zh">查看协议桥与方法</span><span class="lang-en">Bridge &amp; playbook</span> ↗</a></div>
           </article>
                 </div>
 
@@ -816,6 +830,13 @@
             <div>
               <h3><span class="lang-zh">agent-dispatch-kit 开源：一个入口调度所有智能体</span><span class="lang-en">agent-dispatch-kit open-sourced: one entry point for all agents</span></h3>
               <p><span class="lang-zh">三层架构、结构化调度/汇报提示词模板与验收脚本公开；派发→跟踪→验收→建议工作流已在真实 X 内容发布链路跑通。</span><span class="lang-en">Three-layer architecture, structured dispatch/report prompt templates, and the acceptance script published; the dispatch → track → accept → advise workflow validated on a real X publishing pipeline.</span></p>
+            </div>
+          </li>
+          <li class="update-item">
+            <span class="update-date">2026-09</span>
+            <div>
+              <h3><span class="lang-zh">agent-gateway 开源：给没有 function calling 的号池加上工具调用</span><span class="lang-en">agent-gateway open-sourced: tool calling for pools without function calling</span></h3>
+              <p><span class="lang-zh">协议桥代码、METHOD 方法手册与 104 项回归测试一次公开；P4 验收三段弧线（90%→98.3%）与三处根因修复实录。</span><span class="lang-en">Bridge code, the METHOD playbook, and 104 regression tests published together; the full P4 arc (90%→98.3%) with three root-cause fixes documented.</span></p>
             </div>
           </li>
           <li class="update-item">
