@@ -14,6 +14,7 @@ Focused on **applied AI, multi-agent collaboration, and automation practice**, w
 |---|---|---|---|
 | [chat2api-sft-toolkit](chat2api-sft-toolkit/) | Chat subscription quota goes unused every month, while SFT data labeling is expensive | Built batch Q&A generation and data-cleaning scripts (stdlib only) around the open-source chat2api project; published wiring pitfalls from real testing; bilingual docs | Practiced |
 | [agent-dispatch-kit](agent-dispatch-kit/) | No unified way to dispatch, track, and verify work across multiple AI agents | Designed the three-layer architecture and structured dispatch/report prompt templates; dispatch → track → accept → advise workflow with independent second-model scoring | Practiced |
+| [agent-gateway](agent-gateway/) | Web-reverse ChatGPT pools silently drop the tools array, so agent clients can't call tools | Built a protocol bridge turning a chat-only pool into a tool-calling backend (XML pseudo-protocol, tool pruning, deep prefill + repair ladder); P4 acceptance passed: 59/60 tool rounds, 20/20 multi-turn | Practiced |
 
 Every case shows "problem — role — process — verification" right on the homepage. Project directories carry the full code, methods, limitations, and public evidence.
 
@@ -33,7 +34,8 @@ zhugong-portfolio/
 ├── index.html             # Bilingual static portfolio homepage
 ├── assets/                # Public assets such as social preview images
 ├── chat2api-sft-toolkit/  # Turn Chat quota into SFT datasets (bilingual)
-└── agent-dispatch-kit/    # One entry point to dispatch all agents (bilingual)
+├── agent-dispatch-kit/    # One entry point to dispatch all agents (bilingual)
+└── agent-gateway/         # Protocol bridge: chat-only pool → tool-calling backend
 ```
 
 ## Authenticity & AI collaboration
