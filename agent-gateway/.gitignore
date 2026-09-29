@@ -1,0 +1,7 @@
+.venv/
+logs/
+.tmp/
+__pycache__/
+*.pyc
+# runtime cooldown ledger (per-host state, not source)
+state/
