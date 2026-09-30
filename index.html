@@ -779,6 +779,20 @@
             <ol class="case-flow" aria-label="Workflow"><li><span class="lang-zh">伪协议</span><span class="lang-en">Pseudo-protocol</span></li><li><span class="lang-zh">剪枝</span><span class="lang-en">Prune</span></li><li><span class="lang-zh">预填充</span><span class="lang-en">Prefill</span></li><li><span class="lang-zh">校验</span><span class="lang-en">Validate</span></li><li><span class="lang-zh">回填</span><span class="lang-en">Render</span></li></ol>
             <div class="case-footer"><span class="case-tags">protocol bridge · tool calling · A/B verification</span><a class="text-link" href="https://github.com/junjiemi23-ship-it/zhugong-portfolio/tree/main/agent-gateway" target="_blank" rel="noreferrer"><span class="lang-zh">查看协议桥与方法</span><span class="lang-en">Bridge &amp; playbook</span> ↗</a></div>
           </article>
+          <article class="case-study" data-index="04">
+            <div class="case-head">
+              <span class="case-name">aihot-welfare</span>
+              <span class="status done"><span class="lang-zh">已实践 · 补丁公开</span><span class="lang-en">Practiced · Patch public</span></span>
+            </div>
+            <h3><span class="lang-zh">把 AI 热点站框架，改成专盯羊毛的福利雷达。</span><span class="lang-en">Turn an AI hotspot framework into a promo-hunting welfare radar.</span></h3>
+            <p class="case-summary"><span class="lang-zh">开源 AIHOT 原版是新闻监控：采集→判重→双次打分→摘要→聚簇→日报。我要的是福利监控——在它的精选评分里新增 promo_welfare 内容类型，权重向证据强度倾斜：没官方来源、没领取方式的“福利” cred≤3、总分压到 40 以下；过期、名额满的 act≤3；真实可领的按真实价值打分。</span><span class="lang-en">The open-source AIHOT is a news monitor: collect → dedupe → dual scoring → summarize → cluster → daily digest. I needed a welfare monitor instead — so I added a promo_welfare content type to its selection scoring, weighted toward evidence: promos with no official source or claim path get cred≤3 and a total cap of 40; expired or full-quota ones get act≤3; genuinely claimable promos score at face value.</span></p>
+            <dl class="case-facts">
+              <div><dt><span class="lang-zh">我的角色</span><span class="lang-en">My role</span></dt><dd><span class="lang-zh">设计 promo_welfare 评分维度与压分规则，给出零成本模型接线（OpenAI 兼容 API key 接入）与低配 VPS Docker 部署记录。</span><span class="lang-en">Designed the promo_welfare scoring dimension and suppression rules; published a zero-cost model wiring (OpenAI-compatible API key) plus low-spec VPS Docker deployment notes.</span></dd></div>
+              <div><dt><span class="lang-zh">验证结果</span><span class="lang-en">Verified result</span></dt><dd><span class="lang-zh">评分补丁与部署配置已公开；AIHOT 负责上游粗筛聚簇，终审（福利优先→爆火潜力→官方核验）由 AI 助手按固定节奏推送。</span><span class="lang-en">The scoring patch and deployment config are public; AIHOT handles upstream triage and clustering, while final review (welfare-first → viral potential → official verification) is pushed by the AI assistant on a fixed cadence.</span></dd></div>
+            </dl>
+            <ol class="case-flow" aria-label="Workflow"><li><span class="lang-zh">采集</span><span class="lang-en">Collect</span></li><li><span class="lang-zh">打分</span><span class="lang-en">Score</span></li><li><span class="lang-zh">压分</span><span class="lang-en">Suppress</span></li><li><span class="lang-zh">终审</span><span class="lang-en">Review</span></li><li><span class="lang-zh">推送</span><span class="lang-en">Push</span></li></ol>
+            <div class="case-footer"><span class="case-tags">aihot mod · welfare scoring · zero-cost deploy</span><a class="text-link" href="https://github.com/junjiemi23-ship-it/zhugong-portfolio/tree/main/aihot-welfare" target="_blank" rel="noreferrer"><span class="lang-zh">查看评分补丁</span><span class="lang-en">Scoring patch</span> ↗</a></div>
+          </article>
                 </div>
 
       </div>
@@ -837,6 +851,13 @@
             <div>
               <h3><span class="lang-zh">agent-gateway 开源：给没有 function calling 的号池加上工具调用</span><span class="lang-en">agent-gateway open-sourced: tool calling for pools without function calling</span></h3>
               <p><span class="lang-zh">协议桥代码、METHOD 方法手册与 104 项回归测试一次公开；P4 验收三段弧线（90%→98.3%）与三处根因修复实录。</span><span class="lang-en">Bridge code, the METHOD playbook, and 104 regression tests published together; the full P4 arc (90%→98.3%) with three root-cause fixes documented.</span></p>
+            </div>
+          </li>
+          <li class="update-item">
+            <span class="update-date">2026-09</span>
+            <div>
+              <h3><span class="lang-zh">aihot-welfare 开源：把 AIHOT 改成福利雷达</span><span class="lang-en">aihot-welfare open-sourced: AIHOT as a welfare radar</span></h3>
+              <p><span class="lang-zh">promo_welfare 评分补丁、零成本模型接线与低配 VPS 部署记录一次公开；原版做新闻监控，魔改版专盯真羊毛、压制假福利。</span><span class="lang-en">The promo_welfare scoring patch, zero-cost model wiring, and low-spec VPS deployment notes published together; the base project monitors news, the mod hunts real promos and suppresses fake ones.</span></p>
             </div>
           </li>
           <li class="update-item">
