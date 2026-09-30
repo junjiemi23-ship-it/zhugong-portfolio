@@ -15,6 +15,7 @@
 | [chat2api-sft-toolkit](chat2api-sft-toolkit/) | 每月 Chat 订阅额度用不完，而 SFT 数据标注很贵 | 围绕开源 chat2api 做了批量问答生成与数据清洗脚本（纯标准库）；基于实测沉淀逆向接线踩坑记录；双语文档 | 已实践 |
 | [agent-dispatch-kit](agent-dispatch-kit/) | 多个 AI 智能体之间没有统一的派发、跟踪与验收方式 | 设计三层架构与结构化调度/汇报提示词模板；派发→跟踪→验收→建议工作流，配独立第二模型打分 | 已实践 |
 | [agent-gateway](agent-gateway/) | 网页逆向的 ChatGPT 池会静默丢弃 tools 参数，agent 客户端调不了工具 | 自研协议桥，把纯聊天号池变成可调工具的 agent 后端（XML 伪协议、工具剪枝、深预填充+修复梯度）；P4 验收通过：工具轮 59/60、多轮 20/20 | 已实践 |
+| [aihot-welfare](aihot-welfare/) | AIHOT 原版是新闻监控，我要的是福利雷达：真羊毛要捞出来，假福利要压下去 | 给 AIHOT 评分体系新增 promo_welfare 福利维度（证据权重优先：cred 给 3，假福利总分压到 40 以下）；零成本模型接线（免费 OpenAI 兼容模型，付费源留空照样跑）；低配 VPS Docker 部署记录 | 已实践 |
 
 多个案例均在首页直接展示“问题—角色—流程—验证”。项目目录继续承载完整代码、方法、限制和公开证据。
 
@@ -33,6 +34,7 @@
 zhugong-portfolio/
 ├── index.html             # 双语静态作品集首页
 ├── assets/                # 网站分享图等公开资产
+├── aihot-welfare/         # AIHOT 魔改：新闻监控变福利雷达（评分补丁）
 ├── chat2api-sft-toolkit/  # Chat 额度变 SFT 数据集（双语）
 ├── agent-dispatch-kit/    # 一个入口调度所有智能体（双语）
 └── agent-gateway/         # 协议桥：纯聊天号池变可调工具后端（双语）
