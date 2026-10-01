@@ -1,6 +1,8 @@
 # aihot-welfare：把 AIHOT 从"新闻监控"改成"福利雷达"
 
-基于开源 AIHOT 热点站框架（https://github.com/KKKKhazix/AIHOT ，MIT 协议，作者数字生命卡兹克）的一套定制补丁：
+作者：Junjie Mi（本目录补丁内容 © 2026 Junjie Mi，MIT 协议）
+
+基于 MIT 开源项目 AIHOT（https://github.com/KKKKhazix/AIHOT）的一套定制补丁：
 让它的精选评分认识"福利/促销"，并给出一套零成本部署接线。
 
 ## 原项目是什么
@@ -36,7 +38,7 @@ AIHOT 只做上游粗筛和聚簇；终审是我的 AI 助手：福利优先判�
 - `welfare-scoring-patch.md` — 三处改动的完整说明（评分 prompt / env 接线 / 部署注意）
 - `.env.example` — OpenAI 兼容 API key 接线模板
 
-## Credit
+## 协议与来源
 
-框架原作者：数字生命卡兹克（X @khazix0918），原项目 MIT 开源。
-本目录补丁同样遵循 MIT（见仓库根目录 LICENSE）。
+- 本目录补丁内容 © 2026 Junjie Mi，MIT 协议（见仓库根目录 LICENSE）
+- 基于 MIT 开源项目 AIHOT（https://github.com/KKKKhazix/AIHOT）
